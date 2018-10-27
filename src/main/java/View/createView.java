@@ -1,5 +1,6 @@
 package View;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 
 import java.awt.*;
@@ -29,11 +30,9 @@ public class createView
     public String getPasswordConfirmation(){
         return txtfld_passwordConfirmation.getText();
     }
-
-    public String getDateOfBirth(){
-
-        String date= dateP_dateOfBirth.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        return date;
+//need to check
+    public LocalDate getDateOfBirth(){
+        return dateP_dateOfBirth.getValue();
     }
 
     public String getPrivateName(){
@@ -48,4 +47,9 @@ public class createView
         return txtfld_residence.getText();
     }
 
+    public void displayErrorMessage(String alertMessage){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setContentText(alertMessage);
+        alert.show();
+    }
 }

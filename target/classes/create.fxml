@@ -21,7 +21,7 @@
       <Label layoutX="56.0" layoutY="265.0" text="Residence" />
       <Label layoutX="56.0" layoutY="192.0" text="Private name" />
       <Label layoutX="56.0" layoutY="230.0" text="Last name" />
-      <Button fx:id="btn_done" layoutX="291.0" layoutY="313.0" mnemonicParsing="false" text="Done" />
+      <Button fx:id="btn_done" onAction="#createNewUser" layoutX="291.0" layoutY="313.0" mnemonicParsing="false" text="Done" />
       <TextField fx:id="txtfld_newUsername" layoutX="203.0" layoutY="41.0" />
       <TextField fx:id="txtfld_newPassword" layoutX="203.0" layoutY="75.0" />
       <TextField fx:id="txtfld_passwordConfirmation" alignment="TOP_LEFT" layoutX="203.0" layoutY="112.0" />

@@ -9,7 +9,7 @@ public class LoginScreenView {
     public TextField txtfld_username;
     public TextField txtfld_password;
     public Button btn_login;
-    public Hyperlink hpl_createUser;
+
     public Hyperlink hpl_readUser;
 
     public String getUserName(){

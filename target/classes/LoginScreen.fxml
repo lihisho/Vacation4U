@@ -19,7 +19,7 @@
             <Font name="Arial Bold" size="25.0" />
          </font>
       </Label>
-      <Hyperlink fx:id="hpl_createUser" layoutX="147.0" layoutY="212.0" text="Don't have a user yet? create a new one now!" />
+      <Hyperlink fx:id="hpl_createUser" onAction="#handleCreateLink" layoutX="147.0" layoutY="212.0" text="Don't have a user yet? create a new one now!" />
       <Hyperlink fx:id="hpl_readUser" layoutX="179.0" layoutY="235.0" text="Want to view a specific user? " />
    </children>
 </AnchorPane>
