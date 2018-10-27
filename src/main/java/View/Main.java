@@ -1,5 +1,8 @@
 package View;
 
+import Controller.Controller;
+import Model.IModel;
+import Model.MyModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,6 +22,10 @@ public class Main extends Application {
         Parent root = (Parent)fxmlLoader.load(is);
         Scene Scene = new Scene(root, 600.0D, 400.0D);
         primaryStage.setScene(Scene);
+        IModel myModel=new MyModel();
+        Controller myController = new Controller(myModel);
+        AView view=fxmlLoader.getController();
+        view.setMyController(myController);
         primaryStage.show();
     }
 }

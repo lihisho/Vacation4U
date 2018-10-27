@@ -1,6 +1,7 @@
 package View;
 
 import Controller.Controller;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 
@@ -8,9 +9,10 @@ import javafx.scene.control.*;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
-public class createView
+public class createView extends AView
 {
     public TextField txtfld_newUsername;
     public TextField txtfld_newPassword;
@@ -20,12 +22,6 @@ public class createView
     public TextField txtfld_lastName;
     public TextField txtfld_residence;
     public Button btn_done;
-
-    private Controller myController;
-
-    public void setMyController(Controller myController){
-        this.myController = myController;
-    }
 
     public String getNewUsername(){
         return txtfld_newUsername.getText();
@@ -136,8 +132,9 @@ public class createView
         isNotEmpty(convertDateToString(dateOfBirth));
         //validate that the user is above the age of 18
         LocalDate currentDate = LocalDate.now();
-        Period period = Period.between(currentDate, dateOfBirth);
-        if (period.getYears()< 18 ){
+        long years = ChronoUnit.YEARS.between(dateOfBirth,currentDate);
+        System.out.println(years);
+        if (years< 18 ){
             displayErrorMessage("Only users above 18 can use this app.", "Creation failed");
             throw new Exception();
         }

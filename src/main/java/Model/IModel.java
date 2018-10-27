@@ -6,7 +6,5 @@ public interface IModel {
     // read
     boolean searchUserName(String username0);
     // update
-    void updateUser();
-    // delete
-    void deleteUser();
+
 }

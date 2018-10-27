@@ -4,12 +4,14 @@ import Controller.Controller;
 
 import java.sql.*;
 
-public class MyModel {
+public class MyModel implements IModel {
 
     private Connection conn = null;
 
     public MyModel(){
+
         this.connect();
+        this.createUsersTable();
     }
 
     //connect to the Database
@@ -36,12 +38,35 @@ public class MyModel {
         }
     }
 
+    /**
+     * Create a new table in the test database
+     *
+     */
+    public void createUsersTable() {
+        // SQL statement for creating a new table
+        String sql = "CREATE TABLE IF NOT EXISTS users (\n"
+                + "	username TEXT PRIMARY KEY NOT NULL UNIQUE,\n"
+                + "	password text NOT NULL,\n"
+                + "	private_name TEXT NOT NULL,\n"
+                + " last_name TEXT NOT NULL,\n"
+                + " birth_date TEXT NOT NULL,\n"
+                + " city TEXT NOT NULL\n"
+                + ");";
+        try (Statement stmt = conn.createStatement()) {
+            // create a new table
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     //search according to unique userName
-    public boolean searchUser(String userName){
-        String sql="SELECT * FROM users WHERE username equals '"+userName+"'";
+    public boolean searchUserName(String userName){
+        String sql="SELECT username FROM users WHERE username = ?";
         try{
-            Statement stmt = conn.createStatement();
-            ResultSet rs =stmt.executeQuery(sql);
+            PreparedStatement pstm = conn.prepareStatement(sql);
+            pstm.setString(1,userName);
+            ResultSet rs =pstm.executeQuery();
             int numberOfRows = rs.getRow();
             if(numberOfRows>0)
                 return true;
@@ -55,12 +80,18 @@ public class MyModel {
     }
 
 
-    public boolean createUser(String username,String password, String birthDate, String firstName, String lastName, String residence){
-        String sql = "INSERT INTO users (username, password, first_name, last_name, birth_date, city)" +
-                " VALUES("+username+", "+password+", "+birthDate+", "+firstName+", "+lastName+", "+residence+")";
+    public boolean createUser(String username,String password, String birthDate, String privateName, String lastName, String residence){
+        String sql = "INSERT INTO users (username, password, private_name, last_name, birth_date, city) VALUES(?,?,?,?,?,?)";
         try{
-            Statement stmt = conn.createStatement();
-            stmt.executeQuery(sql);
+            PreparedStatement pstmt =conn.prepareStatement(sql);
+            pstmt.setString(1,username );
+            pstmt.setString(2,password );
+            pstmt.setString(3,birthDate );
+            pstmt.setString(4,privateName );
+            pstmt.setString(5,lastName );
+            pstmt.setString(6,residence );
+            pstmt.executeUpdate();
+            System.out.println("true");
             return true;
         }
         catch(SQLException e) {
