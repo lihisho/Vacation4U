@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ActionsScreen">
+   <children>
+      <TextArea layoutX="144.0" layoutY="32.0" prefHeight="84.0" prefWidth="281.0" text="Hi there,&#10;what would you like to do?">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextArea>
+      <Button layoutX="29.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="Update your details" />
+      <Button layoutX="206.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="Delete your user" />
+      <Button layoutX="382.0" layoutY="200.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="157.0" text="Search for other users" />
+   </children>
+</AnchorPane>

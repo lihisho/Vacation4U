@@ -11,7 +11,7 @@ private IModel myModel;
 
 
     public boolean createNewUser(String username,String password, String birthDate, String firstName, String lastName, String residence){
-        return  myModel.createUser(username,password,birthDate,firstName,lastName,residence);
+        return  myModel.createUser(username,password,firstName,lastName,birthDate,residence);
     }
 
     public boolean searchUserName(String userName){

@@ -81,9 +81,9 @@ public class createView extends AView
             validateDateOfBirth(getDateOfBirth());
             validateFullName(getPrivateName(),getLastName());
             validateResidence(getResidence());
-            if (myController.createNewUser(getNewUsername(),getNewPassword(),convertDateToString(getDateOfBirth()),
-                    getPrivateName(),getLastName(),getResidence())){
-
+            if (myController.createNewUser(getNewUsername(),getNewPassword(),
+                    getPrivateName(),getLastName(),convertDateToString(getDateOfBirth()),getResidence())){
+                displayInformationMessage("User was created succesfully. Please login with your new user.", "Creation succeded");
             }
         }
         catch(Exception exception){

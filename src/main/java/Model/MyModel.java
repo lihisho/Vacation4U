@@ -45,12 +45,12 @@ public class MyModel implements IModel {
     public void createUsersTable() {
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS users (\n"
-                + "	username TEXT PRIMARY KEY NOT NULL UNIQUE,\n"
+                + "	user_name TEXT PRIMARY KEY NOT NULL UNIQUE,\n"
                 + "	password text NOT NULL,\n"
-                + "	private_name TEXT NOT NULL,\n"
+                + "	first_name TEXT NOT NULL,\n"
                 + " last_name TEXT NOT NULL,\n"
                 + " birth_date TEXT NOT NULL,\n"
-                + " city TEXT NOT NULL\n"
+                + " residence TEXT NOT NULL\n"
                 + ");";
         try (Statement stmt = conn.createStatement()) {
             // create a new table
@@ -62,13 +62,12 @@ public class MyModel implements IModel {
 
     //search according to unique userName
     public boolean searchUserName(String userName){
-        String sql="SELECT username FROM users WHERE username = ?";
+        String sql="SELECT * FROM users WHERE user_name = ?";
         try{
             PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setString(1,userName);
+            pstm.setObject(1,userName);
             ResultSet rs =pstm.executeQuery();
-            int numberOfRows = rs.getRow();
-            if(numberOfRows>0)
+            if(rs.next())
                 return true;
             return false;
         }
@@ -80,15 +79,15 @@ public class MyModel implements IModel {
     }
 
 
-    public boolean createUser(String username,String password, String birthDate, String privateName, String lastName, String residence){
-        String sql = "INSERT INTO users (username, password, private_name, last_name, birth_date, city) VALUES(?,?,?,?,?,?)";
+    public boolean createUser(String username,String password, String birthDate, String firstName, String lastName, String residence){
+        String sql = "INSERT INTO users (user_name, password, first_name, last_name, birth_date, residence) VALUES(?,?,?,?,?,?)";
         try{
             PreparedStatement pstmt =conn.prepareStatement(sql);
             pstmt.setString(1,username );
             pstmt.setString(2,password );
-            pstmt.setString(3,birthDate );
-            pstmt.setString(4,privateName );
-            pstmt.setString(5,lastName );
+            pstmt.setString(3,firstName );
+            pstmt.setString(4,lastName );
+            pstmt.setString(5,birthDate );
             pstmt.setString(6,residence );
             pstmt.executeUpdate();
             System.out.println("true");
