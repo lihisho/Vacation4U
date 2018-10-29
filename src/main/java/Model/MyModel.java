@@ -79,7 +79,7 @@ public class MyModel implements IModel {
     }
 
 
-    public boolean createUser(String username,String password, String birthDate, String firstName, String lastName, String residence){
+    public boolean createUser(String username,String password, String firstName, String lastName, String birthDate, String residence){
         String sql = "INSERT INTO users (user_name, password, first_name, last_name, birth_date, residence) VALUES(?,?,?,?,?,?)";
         try{
             PreparedStatement pstmt =conn.prepareStatement(sql);

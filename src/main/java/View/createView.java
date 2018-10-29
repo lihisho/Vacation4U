@@ -2,15 +2,22 @@ package View;
 
 import Controller.Controller;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.util.Optional;
 
 public class createView extends AView
 {
@@ -22,6 +29,7 @@ public class createView extends AView
     public TextField txtfld_lastName;
     public TextField txtfld_residence;
     public Button btn_done;
+    public Button btn_returnToLogin;
 
     public String getNewUsername(){
         return txtfld_newUsername.getText();
@@ -68,6 +76,7 @@ public class createView extends AView
     public void displayErrorMessage(String alertMessage, String title){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
+        alert.setHeaderText(null);
         alert.setContentText(alertMessage);
         alert.show();
     }
@@ -83,11 +92,34 @@ public class createView extends AView
             validateResidence(getResidence());
             if (myController.createNewUser(getNewUsername(),getNewPassword(),
                     getPrivateName(),getLastName(),convertDateToString(getDateOfBirth()),getResidence())){
-                displayInformationMessage("User was created succesfully. Please login with your new user.", "Creation succeded");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Creation succeded!");
+                alert.setHeaderText(null);
+                alert.setContentText("User was created succesfully. Please login with your new user.");
+                Optional<ButtonType> result = alert.showAndWait();
+                if (result.get() == ButtonType.OK)
+                    loadLoginForm();
             }
         }
         catch(Exception exception){
 
+        }
+    }
+
+    public void loadLoginForm(){
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        try{
+            InputStream is= this.getClass().getResource("/Login.fxml").openStream();
+            Parent loginForm = fxmlLoader.load(is);
+            AView loginView =fxmlLoader.getController();
+            loginView.setMyController(this.myController);
+            Scene newScene = new Scene(loginForm,600,400);
+            Stage curStage = (Stage) btn_done.getScene().getWindow();
+            curStage.setScene(newScene);
+            curStage.show();
+        }
+        catch (Exception e){
+            e.printStackTrace();
         }
     }
 
@@ -96,12 +128,12 @@ public class createView extends AView
         isNotEmpty(userNameInput);
         //spaces are not allowed in the user name.
         if (userNameInput.contains(" ")) {
-            displayErrorMessage("Username can not contain spaces. Please enter a new name", "Creation failed");
+            displayErrorMessage("Username can not contain spaces. Please enter a new name", "Failed");
             throw new Exception();
         }
         //check whether the given username already exist in database
         if (myController.searchUserName(userNameInput)) {
-            displayErrorMessage("The given username already exist. Please choose another username", "Creation failed");
+            displayErrorMessage("The given username already exist. Please choose another username", "Failed");
             throw new Exception();
         }
 
@@ -113,13 +145,13 @@ public class createView extends AView
         isNotEmpty(confirmationPassword);
         //password can not contain spaces
         if( password.contains(" ")){
-            displayErrorMessage("Password can not contain spaces. Please enter a new password", "Creation failed");
+            displayErrorMessage("Password can not contain spaces. Please enter a new password", "Failed");
             throw new Exception();
         }
         //both given passwords must be identical for confirmation
         if( !password.equals(confirmationPassword))
         {
-            displayErrorMessage("Password confirmation was denied. Please make sure you enter an identical password", "Creation failed");
+            displayErrorMessage("Password confirmation was denied. Please make sure you entered an identical password.", "Failed");
             throw new Exception();
         }
     }
@@ -135,7 +167,7 @@ public class createView extends AView
         long years = ChronoUnit.YEARS.between(dateOfBirth,currentDate);
         System.out.println(years);
         if (years< 18 ){
-            displayErrorMessage("Only users above 18 can use this app.", "Creation failed");
+            displayErrorMessage("Only users above 18 can use this app.", "Failed");
             throw new Exception();
         }
     }
@@ -145,11 +177,11 @@ public class createView extends AView
         isNotEmpty(privaeName);
         isNotEmpty(lastName);
         if (!isAlpha(privaeName)){
-            displayErrorMessage("Private name can contain letters only.", "Creation failed");
+            displayErrorMessage("Private name can contain letters only.", "Failed");
             throw new Exception();
         }
         if (!isAlpha(lastName)){
-            displayErrorMessage("Last name can contain letters only.", "Creation failed");
+            displayErrorMessage("Last name can contain letters only.", "Failed");
             throw new Exception();
         }
     }
@@ -158,7 +190,7 @@ public class createView extends AView
         //check if the string is not empty
         isNotEmpty(givenResidence);
         if (!isAlpha(givenResidence)){
-            displayErrorMessage("Residence name can contain letters only.", "Creation failed");
+            displayErrorMessage("Residence name can contain letters only.", "Failed");
             throw new Exception();
         }
     }
@@ -167,6 +199,8 @@ public class createView extends AView
     private boolean isAlpha(String name){
         char[] chars = name.toCharArray();
         for (char c: chars) {
+            if (c == ' ')
+                continue;
             if (!Character.isLetter(c)) {
                 return false;
             }
@@ -175,8 +209,8 @@ public class createView extends AView
     }
 
     private void isNotEmpty (String input) throws Exception{
-        if (input.equals("")){
-            displayErrorMessage("All fields must be filled.", "Creation failed");
+        if (input.isEmpty()){
+            displayErrorMessage("All fields must be filled.", "Failed");
             throw new Exception();
         }
     }
