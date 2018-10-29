@@ -134,7 +134,7 @@ public class MyModel implements IModel {
 
     public boolean deleteUser(){
         //if (currentUser? !=null){
-        String sql = "DELETE * FROM users WHERE username = ?";
+        String sql = "DELETE FROM users WHERE user_name = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             // set the corresponding param
@@ -192,8 +192,8 @@ public class MyModel implements IModel {
             pstmt.setString(1, currentUserName);
             // update
             ResultSet rs  = pstmt.executeQuery();
-            while (rs.next())
-                currUser=new User(rs.getString("user_name"),rs.getString("password"), rs.getString("first_name"),rs.getString("last_name"),rs.getString("birth_date"),rs.getString("residence"));
+            rs.next();
+            currUser=new User(rs.getString("user_name"),rs.getString("password"), rs.getString("first_name"),rs.getString("last_name"),rs.getString("birth_date"),rs.getString("residence"));
             return currUser;
 
 

@@ -44,11 +44,13 @@ public class loginView extends AView{
         try{
             InputStream is= this.getClass().getResource("/create.fxml").openStream();
             Parent createForm = fxmlLoader.load(is);
-            AView createView =fxmlLoader.getController();
-            createView.setMyController(this.myController);
+            createView create =fxmlLoader.getController();
+            create.setMyController(this.myController);
             Scene newScene = new Scene(createForm,600,400);
             Stage curStage = (Stage) hpl_createUser.getScene().getWindow();
             curStage.setScene(newScene);
+            create.setDeafultDate();
+
             curStage.show();
 
         }

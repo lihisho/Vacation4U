@@ -18,7 +18,7 @@ public class Main extends Application {
     public void start (Stage primaryStage) throws Exception{
         primaryStage.setTitle("Vacation4U");
         FXMLLoader fxmlLoader = new FXMLLoader();
-        InputStream is= this.getClass().getResource("/Login.fxml").openStream();
+        InputStream is= this.getClass().getResource("/login.fxml").openStream();
         Parent root = (Parent)fxmlLoader.load(is);
         Scene Scene = new Scene(root, 600.0D, 400.0D);
         primaryStage.setScene(Scene);

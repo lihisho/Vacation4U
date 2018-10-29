@@ -30,6 +30,7 @@ public abstract class AView {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setContentText(alertMessage);
+        alert.setHeaderText(null);
         alert.show();
     }
 
@@ -70,7 +71,6 @@ public abstract class AView {
     }
 
     protected void validateDateOfBirth(LocalDate dateOfBirth)throws Exception{
-        isNotEmpty(convertDateToString(dateOfBirth));
         //validate that the user is above the age of 18
         LocalDate currentDate = LocalDate.now();
         long years = ChronoUnit.YEARS.between(dateOfBirth,currentDate);
@@ -104,10 +104,12 @@ public abstract class AView {
         }
     }
 
-    //private function which checks whether a given string containes letters only.
+    //private function which checks whether a given string contains letters or spaces only.
     protected boolean isAlpha(String name){
         char[] chars = name.toCharArray();
         for (char c: chars) {
+            if (c == ' ')
+                continue;
             if (!Character.isLetter(c)) {
                 return false;
             }
@@ -115,9 +117,10 @@ public abstract class AView {
         return true;
     }
 
+    //checks the the string is not empty
     protected void isNotEmpty (String input) throws Exception{
-        if (input.equals("")){
-            displayErrorMessage("All fields must be filled.", "Creation failed");
+        if (input.isEmpty()){
+            displayErrorMessage("All fields must be filled.", "Failed");
             throw new Exception();
         }
     }

@@ -37,9 +37,10 @@ public class actionScreenView extends AView {
     public void deleteUser(){
         if(deleteConfirmationMessage("Are you sure you want to delete your User?"))
             myController.deleteUser();
+
         FXMLLoader fxmlLoader = new FXMLLoader();
         try {
-            InputStream is = this.getClass().getResource("/searchUsers.fxml").openStream();
+            InputStream is = this.getClass().getResource("/login.fxml").openStream();
             Parent loginScreen = fxmlLoader.load(is);
             AView loginView = fxmlLoader.getController();
             loginView.setMyController(this.myController);
@@ -64,7 +65,7 @@ public class actionScreenView extends AView {
             Parent updateForm = fxmlLoader.load(is);
             updateView update =fxmlLoader.getController();
             update.setMyController(this.myController);
-            Scene newScene = new Scene(updateForm,400,300);
+            Scene newScene = new Scene(updateForm,400,400);
             Stage curStage = (Stage) btn_Update.getScene().getWindow();
             curStage.setScene(newScene);
             update.setValues();

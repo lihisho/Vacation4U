@@ -21,6 +21,7 @@ public class updateView extends AView{
     public TextField txtfld_lastName;
     public TextField txtfld_residence;
     public Button btn_update;
+    User currUser;
 
     public String getNewUsername(){
         return txtfld_newUsername.getText();
@@ -52,7 +53,8 @@ public class updateView extends AView{
 
     public void updateUser(){
         try{
-            validateUserName(getNewUsername());
+            if(!currUser.getUsername().equals(getNewUsername()))
+                validateUserName(getNewUsername());
 
             validatePassword(getNewPassword(),getPasswordConfirmation());
             validateDateOfBirth(getDateOfBirth());
@@ -70,7 +72,7 @@ public class updateView extends AView{
     }
 
     public void setValues(){
-        User currUser= myController.showDetails();
+         currUser= myController.showDetails();
         txtfld_newUsername.setText(currUser.getUsername());
         txtfld_newPassword.setText(currUser.getPassword());
         txtfld_privateName.setText(currUser.getFirstname());

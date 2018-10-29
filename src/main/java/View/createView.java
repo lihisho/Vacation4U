@@ -1,5 +1,4 @@
 package View;
-
 import Controller.Controller;
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import javafx.fxml.FXMLLoader;
@@ -12,8 +11,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.InputStream;
-import java.time.LocalDate;
-import java.time.Period;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
@@ -31,6 +29,7 @@ public class createView extends AView
     public Button btn_done;
     public Button btn_returnToLogin;
 
+    //getters to all text fields
     public String getNewUsername(){
         return txtfld_newUsername.getText();
     }
@@ -42,7 +41,7 @@ public class createView extends AView
     public String getPasswordConfirmation(){
         return txtfld_passwordConfirmation.getText();
     }
-//need to check
+
     public LocalDate getDateOfBirth(){
         return dateP_dateOfBirth.getValue();
     }
@@ -59,39 +58,23 @@ public class createView extends AView
         return txtfld_residence.getText();
     }
 
-    public void displayInformationMessage(String alertMessage, String title){
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle(title);
-        alert.setContentText(alertMessage);
-        alert.show();
+    public void setDeafultDate (){
+        dateP_dateOfBirth.setValue(LocalDate.of(Year.now().getValue(), MonthDay.now().getMonth().getValue(), MonthDay.now().getDayOfMonth()));
     }
 
-    public void displayConfirmationMessage(String alertMessage, String title){
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setTitle(title);
-        alert.setContentText(alertMessage);
-        alert.show();
-    }
-
-    public void displayErrorMessage(String alertMessage, String title){
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(alertMessage);
-        alert.show();
-    }
-
-
+    //check validation of all the given fields and enter to the DB if evreything is correct.
     public void createNewUser(){
-        //validation of fields
         try{
+            //validation of fields
             validateUserName(getNewUsername());
             validatePassword(getNewPassword(),getPasswordConfirmation());
-            validateDateOfBirth(getDateOfBirth());
             validateFullName(getPrivateName(),getLastName());
             validateResidence(getResidence());
+            validateDateOfBirth(getDateOfBirth());
+            //if all the fields passed validation, send them to the controller
             if (myController.createNewUser(getNewUsername(),getNewPassword(),
                     getPrivateName(),getLastName(),convertDateToString(getDateOfBirth()),getResidence())){
+                //show alert and return to login view
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Creation succeded!");
                 alert.setHeaderText(null);
@@ -101,11 +84,10 @@ public class createView extends AView
                     loadLoginForm();
             }
         }
-        catch(Exception exception){
-
-        }
+        catch(Exception exception){       }
     }
 
+    //switch to login view
     public void loadLoginForm(){
         FXMLLoader fxmlLoader = new FXMLLoader();
         try{
@@ -122,5 +104,4 @@ public class createView extends AView
             e.printStackTrace();
         }
     }
-
 }
