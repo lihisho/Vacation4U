@@ -112,8 +112,8 @@ public class MyModel implements IModel {
         //disconnect
     }
 
+    public boolean createUser(String username,String password, String firstName, String lastName, String birthDate, String residence){
 
-    public boolean createUser(String username, String password, String firstName, String lastName, String birthDate, String residence) {
         String sql = "INSERT INTO users (user_name, password, first_name, last_name, birth_date, residence) VALUES(?,?,?,?,?,?)";
         try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -132,7 +132,7 @@ public class MyModel implements IModel {
         }
     }
 
-    public boolean deleteUser() {
+    public boolean deleteUser(){
         //if (currentUser? !=null){
         String sql = "DELETE * FROM users WHERE username = ?";
         try {
@@ -148,8 +148,6 @@ public class MyModel implements IModel {
             System.out.println(e.getMessage());
             return false;
         }
-
-
     }
     //update user's details
     public boolean updateUser(String username,String password, String firstName, String lastName, String birthDate, String residence){

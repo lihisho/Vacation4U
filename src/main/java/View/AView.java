@@ -46,7 +46,6 @@ public abstract class AView {
             displayErrorMessage("The given username already exist. Please choose another username", "fail");
             throw new Exception();
         }
-
     }
 
     protected void validatePassword(String password, String confirmationPassword)throws Exception{
