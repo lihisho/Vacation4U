@@ -6,5 +6,13 @@ public interface IModel {
     // read
     boolean searchUserName(String username0);
     // update
+    public boolean updateUser(String username,String password, String firstName, String lastName, String birthDate, String residence);
+    //delete
+    public boolean deleteUser();
 
-}
+    public User showDetails();
+
+    // login
+    boolean login(String username, String password);
+
+    }

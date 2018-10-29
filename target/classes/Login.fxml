@@ -7,19 +7,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.LoginView">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.loginView">
    <children>
       <TextField fx:id="txtfld_username" layoutX="177.0" layoutY="94.0" prefHeight="22.0" prefWidth="167.0" promptText="Please enter your username" />
       <Label layoutX="106.0" layoutY="94.0" prefHeight="25.0" prefWidth="71.0" text="Username" />
       <TextField fx:id="txtfld_password" layoutX="177.0" layoutY="135.0" prefHeight="22.0" prefWidth="167.0" promptText="Please enter your password" />
       <Label layoutX="106.0" layoutY="135.0" prefHeight="25.0" prefWidth="71.0" text="Password" />
-      <Button fx:id="btn_login" layoutX="235.0" layoutY="175.0" mnemonicParsing="false" text="Login" />
+      <Button fx:id="btn_login" onAction="#login" layoutX="235.0" layoutY="175.0" mnemonicParsing="false" text="Login" />
       <Label layoutX="177.0" layoutY="23.0" prefHeight="48.0" prefWidth="184.0" text="Vacation4U" textAlignment="JUSTIFY">
          <font>
             <Font name="Arial Bold" size="25.0" />
          </font>
       </Label>
       <Hyperlink fx:id="hpl_createUser" onAction="#handleCreateLink" layoutX="147.0" layoutY="212.0" text="Don't have a user yet? create a new one now!" />
-      <Hyperlink fx:id="hpl_readUser" layoutX="179.0" layoutY="235.0" text="Want to view a specific user? " />
+      <Hyperlink fx:id="hpl_readUser" onAction="#handleSearchUserLink" layoutX="179.0" layoutY="235.0" text="Want to view a specific user? " />
    </children>
 </AnchorPane>
