@@ -82,7 +82,7 @@ public class loginView extends AView{
 
         }
         catch (Exception e) {
-            e.printStackTrace();
+           // e.printStackTrace();
         }
     }
 
