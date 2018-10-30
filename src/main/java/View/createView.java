@@ -19,6 +19,7 @@ import java.util.Optional;
 
 public class createView extends AView
 {
+    //Text fields and buttons in the create.fxml
     public TextField txtfld_newUsername;
     public TextField txtfld_newPassword;
     public TextField txtfld_passwordConfirmation;
@@ -30,6 +31,7 @@ public class createView extends AView
     public Button btn_returnToLogin;
 
     //getters to all text fields
+
     public String getNewUsername(){
         return txtfld_newUsername.getText();
     }
@@ -62,7 +64,9 @@ public class createView extends AView
         dateP_dateOfBirth.setValue(LocalDate.of(Year.now().getValue(), MonthDay.now().getMonth().getValue(), MonthDay.now().getDayOfMonth()));
     }
 
-    //check validation of all the given fields and enter to the DB if evreything is correct.
+    /**
+     * check validation of all the given fields and enter to the DB if evreything is correct.
+     */
     public void createNewUser(){
         try{
             //validation of fields
@@ -81,11 +85,14 @@ public class createView extends AView
                 alert.setContentText("User was created succesfully. Please login with your new user.");
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK)
-                    //Go back to login view.
-                    openNewWindow("/login.fxml", btn_done);
+                    loadLoginForm();
             }
         }
         catch(Exception exception){       }
     }
 
+    //switch to login view
+    public void loadLoginForm() {
+        openNewWindow("/login.fxml", btn_done, 500, 400);
+    }
 }

@@ -10,7 +10,7 @@
       <Button fx:id="btn_Update" layoutX="26.0" layoutY="153.0" mnemonicParsing="false" onAction="#loadUpdateForm" prefHeight="43.0" prefWidth="157.0" text="Update your details" />
       <Button fx:id="btn_Delete" layoutX="206.0" layoutY="153.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="43.0" prefWidth="157.0" text="Delete your user" />
       <Button fx:id="btn_Search" layoutX="395.0" layoutY="153.0" mnemonicParsing="false" onAction="#loadSearchForm" prefHeight="43.0" prefWidth="157.0" text="Search for other users" />
-      <Button fx:id="btn_return" layoutX="206.0" layoutY="258.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="157.0" text="Back To Main Menu" />
+      <Button fx:id="btn_returnHome" layoutX="206.0" layoutY="258.0" mnemonicParsing="false" onAction="#loadLoginScreen" prefHeight="43.0" prefWidth="157.0" text="Back To Main Menu" />
       <Label layoutX="126.0" layoutY="37.0" prefHeight="55.0" prefWidth="318.0" text="Hi there, what would you like to do?">
          <font>
             <Font size="18.0" />

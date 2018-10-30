@@ -19,6 +19,7 @@ import java.time.LocalDate;
 
 public class updateView extends AView{
 
+    //Text fields and buttons in the update.fxml
     public TextField txtfld_newUsername;
     public TextField txtfld_newPassword;
     public TextField txtfld_passwordConfirmation;
@@ -27,8 +28,10 @@ public class updateView extends AView{
     public TextField txtfld_lastName;
     public TextField txtfld_residence;
     public Button btn_update;
+    //current user that login in the system
     User currUser;
 
+    //getters
     public String getNewUsername(){
         return txtfld_newUsername.getText();
     }
@@ -40,7 +43,7 @@ public class updateView extends AView{
     public String getPasswordConfirmation(){
         return txtfld_passwordConfirmation.getText();
     }
-    //need to check
+
     public LocalDate getDateOfBirth(){
         return dateP_dateOfBirth.getValue();
     }
@@ -57,6 +60,9 @@ public class updateView extends AView{
         return txtfld_residence.getText();
     }
 
+    /**
+     * A function that validates user's details before sending them to the controller
+     */
     public void updateUser(){
         try{
             if(!currUser.getUsername().equals(getNewUsername()))
@@ -78,6 +84,9 @@ public class updateView extends AView{
         }
     }
 
+    /**
+     * A function sets values to shoe in the text fields
+     */
     public void setValues(){
         currUser= myController.showDetails(null);
         txtfld_newUsername.setText(currUser.getUsername());
@@ -90,21 +99,11 @@ public class updateView extends AView{
         txtfld_residence.setText(currUser.getResidence());
     }
 
-
+    /**
+     * A function that go back to ActionScreen
+     */
     public void backToActionScreen(){
+        openNewWindow("/actionsScreen.fxml",btn_update,600,400);
         FXMLLoader fxmlLoader = new FXMLLoader();
-        try{
-            InputStream is= this.getClass().getResource("/actionsScreen.fxml").openStream();
-            Parent updateForm = fxmlLoader.load(is);
-            AView action = fxmlLoader.getController();
-            action.setMyController(this.myController);
-            Scene newScene = new Scene(updateForm,600  ,600);
-            Stage curStage = (Stage) btn_update.getScene().getWindow();
-            curStage.setScene(newScene);
-            curStage.show();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
     }
 }

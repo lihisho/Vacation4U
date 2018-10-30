@@ -1,7 +1,13 @@
 package Model;
 
+/**
+ * A class that holds all the fields in the DB of a user.
+ * We use this Type to hold the current user that login to the system and to
+ * send user details to show on the view
+ */
 public class User {
 
+    //The fields of a user record in the DB
     private String username;
     private String password;
     private String firstname;
@@ -9,6 +15,7 @@ public class User {
     private String birthdate;
     private String residence;
 
+    //constructor
     public User(String username,String password, String firstName, String lastName, String birthDate, String residence){
         this.username=username;
         this.password=password;
@@ -17,6 +24,8 @@ public class User {
         this.birthdate=birthDate;
         this.residence=residence;
     }
+
+    //getters
 
     public String getUsername() { return username; }
 

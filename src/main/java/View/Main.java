@@ -17,19 +17,20 @@ import java.util.Optional;
 public class Main extends Application {
 
     public static void main(String[] args) {launch(args);}
-
+    //loads the app
     public void start (Stage primaryStage) throws Exception{
         primaryStage.setTitle("Vacation4U");
         FXMLLoader fxmlLoader = new FXMLLoader();
         InputStream is= this.getClass().getResource("/Login.fxml").openStream();
         Parent root = (Parent)fxmlLoader.load(is);
-        Scene Scene = new Scene(root, 600.0D, 400.0D);
+        Scene Scene = new Scene(root, 500, 400.0D);
         primaryStage.setScene(Scene);
         MyModel myModel=new MyModel();
         Controller myController = new Controller(myModel);
         AView view=fxmlLoader.getController();
         view.setMyController(myController);
         primaryStage.show();
+        // dealing with closing the app
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {

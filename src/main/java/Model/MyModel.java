@@ -4,19 +4,30 @@ import Controller.Controller;
 
 import java.sql.*;
 
+/**
+ * A Model class as part of the MVC model.
+ * Our Model holds the DB of the system and all the actions on the DB are in this class
+ */
 public class MyModel implements IModel {
 
+    //a field that describes the connection to the DB
     private Connection conn = null;
-    //the current user which is now connected to the system.
+    //the current userName which is now connected to the system.
     private String currentUserName = null;
+    //the current user which is now connected to the system.
     private User currUser;
-    public MyModel() {
 
+    //constructor
+    public MyModel() {
+        //connect the DB
         this.connect();
+        //create user table in the DB, if doesn't exist
         this.createUsersTable();
     }
 
-    //connect to the Database
+    /**
+     * A function that connect to the Database
+     */
     public void connect() {
         try {
             // db parameters
@@ -29,7 +40,9 @@ public class MyModel implements IModel {
         }
     }
 
-    //close the connection to the DB
+    /**
+     * A function that closes the connection to the DB
+     */
     public void disconnect() {
         try {
             if (conn != null) {
@@ -94,8 +107,11 @@ public class MyModel implements IModel {
         }
     }
 
-    //search according to unique userName
-    public boolean searchUserName(String userName) {
+    /**
+     * A function that search according to unique userName
+     * @param userName - a given userName to search by from the controller
+     * @return true if the search process passed succesfully, else false
+     */    public boolean searchUserName(String userName) {
         String sql = "SELECT * FROM users WHERE user_name = ?";
         try {
             PreparedStatement pstm = conn.prepareStatement(sql);
@@ -111,6 +127,16 @@ public class MyModel implements IModel {
         //disconnect
     }
 
+    /**
+     * A function that creates a new record  in the user table in the DB.
+     * @param username - the given userName from the controller.
+     * @param password - the given password from the controller.
+     * @param firstName - the given firstName from the controller.
+     * @param lastName - the given lastName from the controller.
+     * @param birthDate - the given birthDate from the controller.
+     * @param residence - the given residence from the controller.
+     * @return true if new record was created, else false
+     */
     public boolean createUser(String username,String password, String firstName, String lastName, String birthDate, String residence){
 
         String sql = "INSERT INTO users (user_name, password, first_name, last_name, birth_date, residence) VALUES(?,?,?,?,?,?)";
@@ -131,6 +157,11 @@ public class MyModel implements IModel {
         }
     }
 
+    /**
+     * A function that deletes a record from the DB.
+     * The record that should be deleted is the record with the current user's userName
+     * @return true if the record was deleted, else false
+     */
     public boolean deleteUser(){
         //if (currentUser? !=null){
         String sql = "DELETE FROM users WHERE user_name = ?";
@@ -148,7 +179,17 @@ public class MyModel implements IModel {
             return false;
         }
     }
-    //update user's details
+
+    /**
+     * A funcion that updates user's details
+     * @param username - the given userName from the controller.
+     * @param password - the given password from the controller.
+     * @param firstName - the given firstName from the controller.
+     * @param lastName - the given lastName from the controller.
+     * @param birthDate - the given birthDate from the controller.
+     * @param residence - the given residence from the controller.
+     * @return true if the update process succeeded, else false
+     */
     public boolean updateUser(String username,String password, String firstName, String lastName, String birthDate, String residence){
         String sql = "UPDATE users SET user_name = ? , "
                 + "password = ? ,"
@@ -180,6 +221,12 @@ public class MyModel implements IModel {
         }
     }//updateUser
 
+    /**
+     * A function that reads the details of the current user or a given user from the controller.
+     * and sends the user type to the controller with the details to show on the view.
+     * @param userName - current userName or a given one from the controller.
+     * @return user type to the controller with the details to show on the view.
+     */
     public User showDetails(String userName){
         String sql = "SELECT user_name, password, first_name,last_name,birth_date,residence "
                 + "FROM users WHERE user_name = ?";
@@ -205,6 +252,11 @@ public class MyModel implements IModel {
         }
     }
 
+    /**
+     *
+     * @param userName
+     * @return
+     */
     public User searchAndReadUser(String userName)
     {
         return this.showDetails(userName);

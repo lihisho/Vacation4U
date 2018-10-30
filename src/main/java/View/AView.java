@@ -17,7 +17,13 @@ public abstract class AView {
 
     protected Controller myController;
 
+    /**
+     * Sets the view's controller with given controller.
+     * @param controller - the specific controller which the view interacts with.
+     */
     public void setMyController(Controller controller) {this.myController =controller;}
+
+    //general message displays
 
     public void displayInformationMessage(String alertMessage, String title){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -41,6 +47,13 @@ public abstract class AView {
         alert.show();
     }
 
+    /**
+     * Checks that the given username is valid, meaning, not empty and contains letters only.
+     * Also, make sure the username is unique.
+     * Indicative error messages are shown if the username does not meet one of the criteria.
+     * @param userNameInput - the username which is the user entered.
+     * @throws Exception
+     */
     protected void validateUserName(String userNameInput)throws Exception {
         //check if the string is not empty
         isNotEmpty(userNameInput);
@@ -56,6 +69,13 @@ public abstract class AView {
         }
     }
 
+    /**
+     * Checks that the given password is valid- meaning, does not contain spaces and matches the password given as
+     * confirmation.
+     * @param password - the password the user has chosen.
+     * @param confirmationPassword - second input of the password for confirmation.
+     * @throws Exception
+     */
     protected void validatePassword(String password, String confirmationPassword)throws Exception{
         //check if the string is not empty
         isNotEmpty(password);
@@ -73,10 +93,20 @@ public abstract class AView {
         }
     }
 
+    /**
+     * Converts local date into string
+     * @param date - the date we wish to convert into a string.
+     * @return a string representing the given date in the format of 'dd/mm/yyyy'
+     */
     protected String convertDateToString(LocalDate date){
         return date.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
     }
 
+    /**
+     * Checks that the user is above the allowed age to use the app.
+     * @param dateOfBirth - the given date
+     * @throws Exception if the user is under 18.
+     */
     protected void validateDateOfBirth(LocalDate dateOfBirth)throws Exception{
         //validate that the user is above the age of 18
         LocalDate currentDate = LocalDate.now();
@@ -88,6 +118,12 @@ public abstract class AView {
         }
     }
 
+    /**
+     * Validate that user's full name contains letters and spaces only, and is not empty.
+     * @param privaeName - the user's private name.
+     * @param lastName - the user's last name.
+     * @throws Exception if the name does not meet the given criteria.
+     */
     protected void validateFullName (String privaeName, String lastName) throws Exception{
         //check if the string is not empty
         isNotEmpty(privaeName);
@@ -102,6 +138,11 @@ public abstract class AView {
         }
     }
 
+    /**
+     * Checks that the city contains letters and spaces only, and not empty.
+     * @param givenResidence - the city in which the user lives in.
+     * @throws Exception
+     */
     protected void validateResidence (String givenResidence)throws Exception{
         //check if the string is not empty
         isNotEmpty(givenResidence);
@@ -124,7 +165,11 @@ public abstract class AView {
         return true;
     }
 
-    //checks the the string is not empty
+    /**
+     * Checks that a given string is not empty
+     * @param input - a given input.
+     * @throws Exception if the string is empty.
+     */
     protected void isNotEmpty (String input) throws Exception{
         if (input.isEmpty()){
             displayErrorMessage("All fields must be filled.", "Failed");
@@ -132,14 +177,19 @@ public abstract class AView {
         }
     }
 
-    public void openNewWindow(String fxmlName, Button btn){
+    /**
+     * opens a new scene above the primary stage
+     * @param fxmlName - the fmxl we wish to load.
+     * @param btn - a button which appears on the current scene. used in order to get the current stage.
+     */
+    public void openNewWindow(String fxmlName, Button btn , int width, int height){
         FXMLLoader fxmlLoader = new FXMLLoader();
         try{
-            InputStream is= this.getClass().getResource (fxmlName).openStream();
+            InputStream is= this.getClass().getResource(fxmlName).openStream();
             Parent parent = fxmlLoader.load(is);
             AView newView = fxmlLoader.getController();
             newView.setMyController(this.myController);
-            Scene newScene = new Scene(parent,600  ,600);
+            Scene newScene = new Scene(parent,width,height);
             Stage curStage = (Stage) btn.getScene().getWindow();
             curStage.setScene(newScene);
             curStage.show();
@@ -148,6 +198,4 @@ public abstract class AView {
             e.printStackTrace();
         }
     }
-
-
-}
+}//AView
