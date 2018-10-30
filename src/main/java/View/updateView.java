@@ -75,7 +75,6 @@ public class updateView extends AView{
             if (myController.updateUser(getNewUsername(),getNewPassword(),
                     getPrivateName(),getLastName(),convertDateToString(getDateOfBirth()),getResidence())) {
                 displayInformationMessage("User was updated successfully.", "update succeeded");
-                /////// find out how to delay the switch till after the users presses OK!
                 backToActionScreen();
             }
         }

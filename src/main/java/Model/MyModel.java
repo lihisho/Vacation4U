@@ -34,7 +34,7 @@ public class MyModel implements IModel {
             String url = "jdbc:sqlite:Vacation4UDatabase.db";
             // create a connection to the database
             conn = DriverManager.getConnection(url);
-            System.out.println("Connection to SQLite has been established.");
+           // System.out.println("Connection to SQLite has been established.");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -149,7 +149,6 @@ public class MyModel implements IModel {
             pstmt.setString(5, birthDate);
             pstmt.setString(6, residence);
             pstmt.executeUpdate();
-            System.out.println("true");
             return true;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -209,14 +208,12 @@ public class MyModel implements IModel {
             pstmt.setString(4, lastName);
             pstmt.setString(5, birthDate);
             pstmt.setString(6, residence);
-            pstmt.setString(7, username);
+            pstmt.setString(7, currentUserName);
             // update
             pstmt.executeUpdate();
-            System.out.println("updated");// delete this
             return true;
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
             return false;
         }
     }//updateUser
@@ -247,15 +244,15 @@ public class MyModel implements IModel {
 
 
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+           // System.out.println(e.getMessage());
             return null;
         }
     }
 
     /**
-     *
-     * @param userName
-     * @return
+     *this function returns the given user details.
+     * @param userName - the username we wish to receive details for
+     * @return the user details. null- if user not found
      */
     public User searchAndReadUser(String userName)
     {

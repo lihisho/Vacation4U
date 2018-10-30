@@ -29,6 +29,7 @@ public abstract class AView {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setContentText(alertMessage);
+        alert.setHeaderText(null);
         alert.showAndWait();
     }
 
@@ -111,7 +112,6 @@ public abstract class AView {
         //validate that the user is above the age of 18
         LocalDate currentDate = LocalDate.now();
         long years = ChronoUnit.YEARS.between(dateOfBirth,currentDate);
-        System.out.println(years);
         if (years< 18 ){
             displayErrorMessage("Only users above 18 can use this app.", "fail");
             throw new Exception();

@@ -23,7 +23,7 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader();
         InputStream is= this.getClass().getResource("/Login.fxml").openStream();
         Parent root = (Parent)fxmlLoader.load(is);
-        Scene Scene = new Scene(root, 500, 400.0D);
+        Scene Scene = new Scene(root, 500, 300);
         primaryStage.setScene(Scene);
         MyModel myModel=new MyModel();
         Controller myController = new Controller(myModel);
@@ -45,7 +45,6 @@ public class Main extends Application {
                 else if (result.get() == ButtonType.CANCEL){
                     alert.close();
                     event.consume();
-                    System.out.println("here?");
                 }
             }
         });
