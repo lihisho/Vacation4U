@@ -81,27 +81,11 @@ public class createView extends AView
                 alert.setContentText("User was created succesfully. Please login with your new user.");
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK)
-                    loadLoginForm();
+                    //Go back to login view.
+                    openNewWindow("/login.fxml", btn_done);
             }
         }
         catch(Exception exception){       }
     }
 
-    //switch to login view
-    public void loadLoginForm(){
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        try{
-            InputStream is= this.getClass().getResource("/Login.fxml").openStream();
-            Parent loginForm = fxmlLoader.load(is);
-            AView loginView =fxmlLoader.getController();
-            loginView.setMyController(this.myController);
-            Scene newScene = new Scene(loginForm,600,400);
-            Stage curStage = (Stage) btn_done.getScene().getWindow();
-            curStage.setScene(newScene);
-            curStage.show();
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-    }
 }

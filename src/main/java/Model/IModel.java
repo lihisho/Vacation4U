@@ -10,9 +10,10 @@ public interface IModel {
     //delete
     public boolean deleteUser();
 
-    public User showDetails();
+    public User showDetails(String userName);
 
     // login
     boolean login(String username, String password);
 
+    public User searchAndReadUser(String userName);
     }

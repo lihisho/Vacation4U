@@ -1,8 +1,14 @@
 package View;
 
 import Controller.Controller;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
+import java.io.InputStream;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -12,11 +18,12 @@ public abstract class AView {
     protected Controller myController;
 
     public void setMyController(Controller controller) {this.myController =controller;}
+
     public void displayInformationMessage(String alertMessage, String title){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(title);
         alert.setContentText(alertMessage);
-        alert.show();
+        alert.showAndWait();
     }
 
     public void displayConfirmationMessage(String alertMessage, String title){
@@ -124,5 +131,23 @@ public abstract class AView {
             throw new Exception();
         }
     }
+
+    public void openNewWindow(String fxmlName, Button btn){
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        try{
+            InputStream is= this.getClass().getResource (fxmlName).openStream();
+            Parent parent = fxmlLoader.load(is);
+            AView newView = fxmlLoader.getController();
+            newView.setMyController(this.myController);
+            Scene newScene = new Scene(parent,600  ,600);
+            Stage curStage = (Stage) btn.getScene().getWindow();
+            curStage.setScene(newScene);
+            curStage.show();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
 
 }

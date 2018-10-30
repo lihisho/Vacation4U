@@ -46,11 +46,10 @@ public class loginView extends AView{
             Parent createForm = fxmlLoader.load(is);
             createView create =fxmlLoader.getController();
             create.setMyController(this.myController);
-            Scene newScene = new Scene(createForm,600,400);
+            Scene newScene = new Scene(createForm,600,600);
             Stage curStage = (Stage) hpl_createUser.getScene().getWindow();
             curStage.setScene(newScene);
             create.setDeafultDate();
-
             curStage.show();
 
         }
@@ -61,6 +60,8 @@ public class loginView extends AView{
 
     /**
      * The login method first make sure that the user entered values to both of the required fields.
+     * The user will arrive to a new screen where he can choose either to update his details, delete his user or search
+     * for another user details.
      * @return true- if the login passed successfully. Otherwise- false.
      */
     public void login(){
@@ -71,34 +72,12 @@ public class loginView extends AView{
             isNotEmpty(pass);
             //if both username and password are not empty
             if(myController.login(this.getUserName(), this.getPassword()))
-                loadActionsScreen();
+                openNewWindow("/actionScreen.fxml", btn_login);
             else
                 displayErrorMessage("Username or password are incorrect. Please try again","Log in failed!");
 
         }
         catch (Exception e) {
-            //e.printStackTrace();
-        }
-    }
-
-    /**
-     * This function loads the next screen after login.
-     * The user will arrive to a new screen where he can choose either to update his details, delete his user or search
-     * for another user details.
-     */
-    public void loadActionsScreen() {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        try {
-            InputStream is = this.getClass().getResource("/actionsScreen.fxml").openStream();
-            Parent actionScreen = fxmlLoader.load(is);
-            AView ActionScreenView = fxmlLoader.getController();
-            ActionScreenView.setMyController(this.myController);
-            Scene newScene = new Scene(actionScreen, 600, 400);
-            Stage curStage = (Stage) btn_login.getScene().getWindow();
-            curStage.setScene(newScene);
-            curStage.show();
-
-        } catch (Exception e) {
             e.printStackTrace();
         }
     }

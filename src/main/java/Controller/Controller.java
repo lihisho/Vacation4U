@@ -26,8 +26,6 @@ private IModel myModel;
         return myModel.updateUser(username,password,firstName,lastName,birthDate,residence);
     }
 
-    public User showDetails(){
-        return myModel.showDetails();
-
-    }
+    public User showDetails(String userName){ return myModel.showDetails(null);}
+    public User searchAndReadUser(String userToSearch){ return myModel.searchAndReadUser(userToSearch);}
 }

@@ -34,29 +34,14 @@ public class actionScreenView extends AView {
     /**
      * Delete the current user connected to the system.
      */
-    public void deleteUser(){
-        if(deleteConfirmationMessage("Are you sure you want to delete your User?"))
+    public void deleteUser() {
+        if (deleteConfirmationMessage("Are you sure you want to delete your User?"))
             myController.deleteUser();
-
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        try {
-            InputStream is = this.getClass().getResource("/login.fxml").openStream();
-            Parent loginScreen = fxmlLoader.load(is);
-            AView loginView = fxmlLoader.getController();
-            loginView.setMyController(this.myController);
-            Scene newScene = new Scene(loginScreen, 600, 400);
-            Stage curStage = (Stage) btn_Update.getScene().getWindow();
-            curStage.setScene(newScene);
-            curStage.show();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+        openNewWindow("/login.fxml", btn_Update);
     }
 
     /**
-     * load
+     * Load a new Update form showing the user's details.
      */
     public void loadUpdateForm(){
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -65,7 +50,7 @@ public class actionScreenView extends AView {
             Parent updateForm = fxmlLoader.load(is);
             updateView update =fxmlLoader.getController();
             update.setMyController(this.myController);
-            Scene newScene = new Scene(updateForm,400,400);
+            Scene newScene = new Scene(updateForm,500,400);
             Stage curStage = (Stage) btn_Update.getScene().getWindow();
             curStage.setScene(newScene);
             update.setValues();
@@ -77,22 +62,8 @@ public class actionScreenView extends AView {
         }
     }
 
-    public void loadSearchForm(){
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        try{/*
-            InputStream is= this.getClass().getResource("/update.fxml").openStream();
-            Parent SearchForm = fxmlLoader.load(is);
-            AView updateView =fxmlLoader.getController();
-            updateView.setMyController(this.myController);
-            Scene newScene = new Scene(SearchForm,400,350);
-            Stage curStage = (Stage) btn_Update.getScene().getWindow();
-            curStage.setScene(newScene);
-            curStage.show();
-*/
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
+    public void loadSearchForm() {
+        openNewWindow("/searchUsers.fxml", btn_Update);
     }
 
 

@@ -73,7 +73,6 @@ public class MyModel implements IModel {
         }
     }
 
-
     /**
      * Create a new table in the test database
      */
@@ -152,10 +151,10 @@ public class MyModel implements IModel {
     //update user's details
     public boolean updateUser(String username,String password, String firstName, String lastName, String birthDate, String residence){
         String sql = "UPDATE users SET user_name = ? , "
-                + "password = ? "
-                + "first_name = ? "
-                + "last_name = ? "
-                + "birth_date = ? "
+                + "password = ? ,"
+                + "first_name = ?, "
+                + "last_name = ? ,"
+                + "birth_date = ? ,"
                 + "residence = ? "
                 + "WHERE user_name = ?";
 
@@ -181,7 +180,7 @@ public class MyModel implements IModel {
         }
     }//updateUser
 
-    public User showDetails(){
+    public User showDetails(String userName){
         String sql = "SELECT user_name, password, first_name,last_name,birth_date,residence "
                 + "FROM users WHERE user_name = ?";
 
@@ -189,7 +188,10 @@ public class MyModel implements IModel {
             PreparedStatement pstmt =conn.prepareStatement(sql);
 
             // set the corresponding param
-            pstmt.setString(1, currentUserName);
+            if(userName == null)
+                pstmt.setString(1, currentUserName);
+            else
+                pstmt.setString(1,userName);
             // update
             ResultSet rs  = pstmt.executeQuery();
             rs.next();
@@ -202,4 +204,10 @@ public class MyModel implements IModel {
             return null;
         }
     }
+
+    public User searchAndReadUser(String userName)
+    {
+        return this.showDetails(userName);
+    }
+
 }
