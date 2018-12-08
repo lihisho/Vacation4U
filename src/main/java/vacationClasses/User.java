@@ -1,4 +1,4 @@
-package Model;
+package vacationClasses;
 
 /**
  * A class that holds all the fields in the DB of a user.
