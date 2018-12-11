@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="355.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.actionScreenView">
+   <children>
+      <Button fx:id="btn_Update" layoutX="26.0" layoutY="237.0" mnemonicParsing="false" onAction="#loadUpdateForm" prefHeight="43.0" prefWidth="157.0" text="Update your details" />
+      <Button fx:id="btn_Delete" layoutX="26.0" layoutY="184.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="43.0" prefWidth="157.0" text="Delete your user" />
+      <Button fx:id="btn_Search" layoutX="26.0" layoutY="135.0" mnemonicParsing="false" onAction="#loadSearchForm" prefHeight="43.0" prefWidth="157.0" text="Search for other users" />
+      <Button fx:id="btn_returnHome" layoutX="206.0" layoutY="258.0" mnemonicParsing="false" onAction="#loadLoginScreen" prefHeight="43.0" prefWidth="157.0" text="Back To Main Menu" />
+      <Label layoutX="24.0" layoutY="23.0" prefHeight="55.0" prefWidth="318.0" text="Hi there, what would you like to do?">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_addFlight" layoutX="206.0" layoutY="163.0" mnemonicParsing="false" onAction="#loadCreateFlight" prefHeight="43.0" prefWidth="157.0" text="Add new flight" />
+      <Button fx:id="btn_searchFlight" layoutX="206.0" layoutY="92.0" mnemonicParsing="false" onAction="#loadSearchFlight" prefHeight="43.0" prefWidth="157.0" text="Search for flights" />
+      <Button fx:id="btn_myPurchasingRequest" layoutX="395.0" layoutY="92.0" mnemonicParsing="false" onAction="#loadMyPurchaseRequestsScreen" prefHeight="43.0" prefWidth="171.0" text="View my purchasing requests" />
+      <Button fx:id="btn_Update1111" layoutX="374.0" layoutY="163.0" mnemonicParsing="false" onAction="#loadUpdateForm" prefHeight="43.0" prefWidth="199.0" text="View requests for approval" />
+   </children>
+</AnchorPane>

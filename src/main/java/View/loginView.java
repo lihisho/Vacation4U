@@ -46,9 +46,9 @@ public class loginView extends AView{
     private void loadCreateForm(){
         FXMLLoader fxmlLoader = new FXMLLoader();
         try{
-            InputStream is= this.getClass().getResource("/create.fxml").openStream();
+            InputStream is= this.getClass().getResource("/createUser.fxml").openStream();
             Parent createForm = fxmlLoader.load(is);
-            createView create =fxmlLoader.getController();
+            CreateUserView create =fxmlLoader.getController();
             create.setMyController(this.myController);
             Scene newScene = new Scene(createForm,500,400);
             Stage curStage = (Stage) hpl_createUser.getScene().getWindow();
@@ -76,7 +76,7 @@ public class loginView extends AView{
             isNotEmpty(pass);
             //if both username and password are not empty
             if(myController.login(this.getUserName(), this.getPassword()))
-                openNewWindow("/actionsScreen.fxml", btn_login , 600,400);
+                openNewWindow("/actionScreen.fxml", btn_login , 600,400);
             else
                 displayErrorMessage("Username or password are incorrect. Please try again","Log in failed!");
 

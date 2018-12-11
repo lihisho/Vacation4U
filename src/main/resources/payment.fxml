@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.paymentView">
+   <children>
+      <Label layoutX="43.0" layoutY="14.0" prefHeight="16.0" prefWidth="447.0" text="In order to complete the purchasing, please fill the following deatils:">
+         <font>
+            <Font name="Arial Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="77.0" layoutY="71.0" text="First name:" />
+      <Label layoutX="78.0" layoutY="111.0" text="Last name:" />
+      <Label layoutX="50.0" layoutY="192.0" prefHeight="17.0" prefWidth="122.0" text="Credit Card number:" />
+      <Label layoutX="78.0" layoutY="154.0" text="Price to pay:" />
+      <Label layoutX="49.0" layoutY="272.0" prefHeight="17.0" prefWidth="90.0" text="Expiration date:" />
+      <Label layoutX="77.0" layoutY="309.0" text="CVV:" />
+      <Button fx:id="btn_pay" layoutX="168.0" layoutY="349.0" mnemonicParsing="false" onAction="#handlePayButton" prefHeight="25.0" prefWidth="58.0" text="Pay" />
+      <TextField fx:id="txtfld_firstName" layoutX="198.0" layoutY="67.0" />
+      <TextField fx:id="txtfld_lastName" layoutX="198.0" layoutY="107.0" />
+      <TextField fx:id="txtfld_cardNumber" layoutX="198.0" layoutY="188.0" />
+      <TextField fx:id="txtfld_CVV" layoutX="143.0" layoutY="305.0" prefHeight="25.0" prefWidth="75.0" />
+      <Button fx:id="btn_cancel" layoutX="253.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleCancelButton" prefHeight="25.0" prefWidth="57.0" text="Cancel" />
+      <Label layoutX="168.0" layoutY="272.0" prefHeight="17.0" prefWidth="45.0" text="Month:" />
+      <Label layoutX="301.0" layoutY="272.0" prefHeight="17.0" prefWidth="45.0" text="Year:" />
+      <ChoiceBox fx:id="monthChoose" layoutX="220.0" layoutY="268.0" prefHeight="25.0" prefWidth="57.0" />
+      <ChoiceBox fx:id="yearChoose" layoutX="346.0" layoutY="268.0" prefHeight="25.0" prefWidth="57.0" />
+      <Label fx:id="priceFromDB" layoutX="206.0" layoutY="154.0" prefHeight="17.0" prefWidth="130.0" text="price will show" />
+      <Label layoutX="50.0" layoutY="234.0" prefHeight="17.0" prefWidth="122.0" text="Owner ID" />
+      <TextField fx:id="txtfld_usersID" layoutX="198.0" layoutY="230.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.flightResultsView">
+   <children>
+      <TableView fx:id="tableResults" prefHeight="200.0" prefWidth="596.0">
+        <columns>
+          <TableColumn fx:id="from" prefWidth="75.0" text="from" />
+          <TableColumn fx:id="destination" prefWidth="75.0" text="Destination" />
+            <TableColumn fx:id="departDate" prefWidth="75.0" text="Depurture Date" />
+            <TableColumn fx:id="returnDate" prefWidth="75.0" text="Return Date" />
+            <TableColumn fx:id="supplier" prefWidth="75.0" text="supplier" />
+            <TableColumn fx:id="priceCol" prefWidth="75.0" text="price" />
+            <TableColumn fx:id="buyCol" prefWidth="75.0" text="buy" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

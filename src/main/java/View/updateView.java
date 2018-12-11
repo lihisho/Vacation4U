@@ -1,18 +1,10 @@
 package View;
 
-import Model.MyModel;
-import Model.User;
+import vacationClasses.User;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
-
-import java.io.InputStream;
-import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
 
 import java.time.LocalDate;
@@ -102,7 +94,7 @@ public class updateView extends AView{
      * A function that go back to ActionScreen
      */
     public void backToActionScreen(){
-        openNewWindow("/actionsScreen.fxml",btn_update,600,400);
+        openNewWindow("/actionScreen.fxml",btn_update,600,400);
         FXMLLoader fxmlLoader = new FXMLLoader();
     }
 }

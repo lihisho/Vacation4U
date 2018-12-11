@@ -198,4 +198,26 @@ public abstract class AView {
             e.printStackTrace();
         }
     }
+    /**
+     * Checks that the user add future flight
+     * @param dateToCheck - the given date
+     */
+    protected void validateFlightDate(LocalDate dateToCheck)throws Exception{
+        //validate that the user is above the age of 18
+        LocalDate currentDate = LocalDate.now();
+        if(dateToCheck==null||!dateToCheck.isAfter(currentDate)) {
+            displayErrorMessage("You can add only future flights.", "fail");
+            throw new Exception();
+        }
+
+    }
+
+    protected void validateDestination(String destination)throws Exception{
+        //validate that the user is above the age of 18
+        LocalDate currentDate = LocalDate.now();
+        if (destination==null||destination.equals("") ){
+            displayErrorMessage("you must enter this field.", "fail");
+            throw new Exception();
+        }
+    }
 }//AView

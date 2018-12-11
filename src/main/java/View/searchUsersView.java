@@ -1,6 +1,6 @@
 package View;
 
-import Model.User;
+import vacationClasses.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -77,7 +77,7 @@ public class searchUsersView extends AView {
     }
 
     public void loadActionForm(){
-        openNewWindow("/actionsScreen.fxml", btn_returnHome , 600,400);
+        openNewWindow("/actionScreen.fxml", btn_returnHome , 600,400);
 
     }
 

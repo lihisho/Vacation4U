@@ -26,11 +26,11 @@ public class Main extends Application {
         Scene Scene = new Scene(root, 500, 300);
         primaryStage.setScene(Scene);
         MyModel myModel=new MyModel();
-        Controller myController = new Controller(myModel);
+        Controller myController = new Controller();
         AView view=fxmlLoader.getController();
         view.setMyController(myController);
         primaryStage.show();
-        // dealing with closing the app
+        // dealing with closing the app.
         primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="491.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.myPurchaseRequestsView">
+   <children>
+      <TableView layoutX="30.0" layoutY="14.0" prefHeight="310.0" prefWidth="428.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="RequestID" />
+          <TableColumn prefWidth="75.0" text="FlightID" />
+            <TableColumn prefWidth="135.0" text="Destination" />
+            <TableColumn prefWidth="97.0" text="Status" />
+        </columns>
+      </TableView>
+      <Button fx:id="btn_openFlightDetails" layoutX="30.0" layoutY="345.0" mnemonicParsing="false" onAction="#handlOpenFlightDetailsButton" text="Open Flight Details" />
+      <Button fx:id="btn_backToProfile" layoutX="350.0" layoutY="346.0" mnemonicParsing="false" onAction="#backToProfile" prefHeight="25.0" prefWidth="118.0" text="Back To My Profile" />
+      <Button layoutX="171.0" layoutY="346.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="81.0" text="Pay Owner" />
+   </children>
+</AnchorPane>

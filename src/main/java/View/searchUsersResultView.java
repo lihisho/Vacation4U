@@ -1,6 +1,6 @@
 package View;
 
-import Model.User;
+import vacationClasses.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -34,7 +34,7 @@ public class searchUsersResultView extends AView {
 
     }
     public void loadActionForm(){
-        openNewWindow("/actionsScreen.fxml", btn_returnHome , 600,400);
+        openNewWindow("/actionScreen.fxml", btn_returnHome , 600,400);
 
     }
     public void loadSearchFormFromAction() {
