@@ -138,7 +138,7 @@ public class actionScreenView extends AView {
                 AView myPurchaseRequestView = fxmlLoader.getController();
                 //flightResults.setMyController(this.myController);
                 Scene newScene = new Scene(actionScreen, 900, 400);
-                Stage curStage = (Stage) btn_viewMyReq.getScene().getWindow();
+                Stage curStage = (Stage) btn_requestForApprove.getScene().getWindow();
                 curStage.setScene(newScene);
                 curStage.show();
 
