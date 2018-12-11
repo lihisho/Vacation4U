@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="877.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.flightResultsView">
+<AnchorPane prefHeight="268.0" prefWidth="654.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.flightResultsView">
    <children>
-      <TableView fx:id="tableResults" prefHeight="200.0" prefWidth="596.0">
+      <TableView fx:id="tableResults" prefHeight="200.0" prefWidth="654.0">
         <columns>
-          <TableColumn fx:id="from" prefWidth="75.0" text="from" />
-          <TableColumn fx:id="destination" prefWidth="75.0" text="Destination" />
-            <TableColumn fx:id="departDate" prefWidth="75.0" text="Depurture Date" />
-            <TableColumn fx:id="returnDate" prefWidth="75.0" text="Return Date" />
-            <TableColumn fx:id="supplier" prefWidth="75.0" text="supplier" />
-            <TableColumn fx:id="priceCol" prefWidth="75.0" text="price" />
-            <TableColumn fx:id="buyCol" prefWidth="75.0" text="buy" />
+          <TableColumn fx:id="from" prefWidth="75.0" text="From" />
+          <TableColumn fx:id="destination" prefWidth="94.0" text="Destination" />
+            <TableColumn fx:id="departDate" prefWidth="103.0" text="Depurture Date" />
+            <TableColumn fx:id="returnDate" prefWidth="101.0" text="Return Date" />
+            <TableColumn fx:id="supplier" prefWidth="75.0" text="Supplier" />
+            <TableColumn fx:id="priceCol" prefWidth="60.0" text="Price" />
+            <TableColumn fx:id="detailsCol" prefWidth="88.0" text="More Details" />
+            <TableColumn fx:id="buyCol" prefWidth="57.0" text="Buy" />
         </columns>
       </TableView>
+      <Button fx:id="btn_returnHome" layoutX="99.0" layoutY="229.0" mnemonicParsing="false" onAction="#loadActionScreen" text="Back" />
    </children>
 </AnchorPane>

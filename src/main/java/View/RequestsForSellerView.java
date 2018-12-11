@@ -12,6 +12,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import vacationClasses.flightSearchColumn;
 import vacationClasses.purchaseRequest;
 import vacationClasses.purchaseRequestColumn;
+import vacationClasses.purchaseRequestForSellerColumn;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,6 +21,7 @@ import java.util.ResourceBundle;
 public class RequestsForSellerView extends AView implements Initializable{
 
     private Controller controller = Controller.getInstance();
+
 
     public TableView<purchaseRequestForSellerColumn> tableResults;
 

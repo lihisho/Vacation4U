@@ -318,7 +318,8 @@ public class MyModel implements IModel {
     }
 
     public flight showFlightDetails(String flightID) {
-        String sql = "SELECT destination, depart_Date, return_Date ,num_of_passengers ,luggage_weight, price, supplier_username " + "FROM flights WHERE flight_id = ?";
+
+        String sql = "SELECT fly_from, destination, depart_Date, return_Date ,num_of_passengers ,luggage_weight, price, supplier_username " + "FROM flights WHERE flight_id = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             // set the corresponding param
@@ -326,7 +327,7 @@ public class MyModel implements IModel {
             // update
             ResultSet rs = pstmt.executeQuery();
             rs.next();
-            flight currFlight = new flight(flightID, rs.getString("destination"),rs.getString("from"), rs.getString("depart_Date"),
+            flight currFlight = new flight(flightID,rs.getString("fly_from"), rs.getString("destination"), rs.getString("depart_Date"),
                     rs.getString("return_Date"), rs.getString("num_of_passengers"),
                     rs.getString("luggage_weight"), rs.getString("supplier_username"), rs.getString("price"));
             return currFlight;
@@ -334,7 +335,9 @@ public class MyModel implements IModel {
             // System.out.println(e.getMessage());
             return null;
         }
-    }
+
+
+}
 
     /**
      * this function returns the given user details.
@@ -543,7 +546,7 @@ public class MyModel implements IModel {
     public ObservableList<purchaseRequest> getMyRequest(){
 
         String sql = "SELECT * "
-                + "FROM purchaseRequests   WHERE   purchaser_userName = ?";
+                + "FROM purchaseRequests  WHERE   purchaser_userName = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, currentUserName);
@@ -562,7 +565,7 @@ public class MyModel implements IModel {
     }
 
     public ObservableList<purchaseRequest> requestForSeller(){
-        String sql = "SELECT * "
+        String sql = "SELECT purchaseRequest_id,flight_id,supplier_userName,purchaser_userName,status "
                 + "FROM purchaseRequests   WHERE   supplier_userName = ?";
         try {
             PreparedStatement pstmt = conn.prepareStatement(sql);

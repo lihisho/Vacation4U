@@ -5,17 +5,24 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.searchFlightView">
+<AnchorPane prefHeight="290.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.searchFlightView">
    <children>
-      <Label layoutX="123.0" layoutY="89.0" prefHeight="25.0" prefWidth="107.0" text="Flight destination:" />
-      <TextField fx:id="flightDestination" layoutX="261.0" layoutY="89.0" prefHeight="25.0" prefWidth="174.0" />
-      <Label layoutX="123.0" layoutY="124.0" prefHeight="25.0" prefWidth="107.0" text="Depurture Date:" />
-      <TextField fx:id="numOfPassengers" layoutX="262.0" layoutY="200.0" prefHeight="25.0" prefWidth="174.0" />
-      <DatePicker fx:id="departDate" layoutX="262.0" layoutY="124.0" />
-      <DatePicker fx:id="returnDate" layoutX="262.0" layoutY="161.0" />
-      <Label layoutX="123.0" layoutY="161.0" prefHeight="25.0" prefWidth="107.0" text="Return Date:" />
-      <Label layoutX="100.0" layoutY="200.0" prefHeight="25.0" prefWidth="130.0" text="Number Of Passengers:" />
-      <Button fx:id="btn_search" mnemonicParsing="false" onAction="#handleSearchButton" text="search" />
+      <Label layoutX="59.0" layoutY="68.0" prefHeight="25.0" prefWidth="107.0" text="Flight destination:" />
+      <TextField fx:id="flightDestination" layoutX="197.0" layoutY="68.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label layoutX="59.0" layoutY="103.0" prefHeight="25.0" prefWidth="107.0" text="Depurture Date:" />
+      <TextField fx:id="numOfPassengers" layoutX="198.0" layoutY="179.0" prefHeight="25.0" prefWidth="174.0" />
+      <DatePicker fx:id="departDate" layoutX="198.0" layoutY="103.0" />
+      <DatePicker fx:id="returnDate" layoutX="198.0" layoutY="140.0" />
+      <Label layoutX="59.0" layoutY="140.0" prefHeight="25.0" prefWidth="107.0" text="Return Date:" />
+      <Label layoutX="36.0" layoutY="179.0" prefHeight="25.0" prefWidth="130.0" text="Number Of Passengers:" />
+      <Button fx:id="btn_search" layoutX="197.0" layoutY="241.0" mnemonicParsing="false" onAction="#handleSearchButton" prefHeight="25.0" prefWidth="64.0" text="search" />
+      <Label layoutX="36.0" layoutY="24.0" prefHeight="25.0" prefWidth="282.0" text="Please enter the following details for search:">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="btn_back" layoutX="298.0" layoutY="241.0" mnemonicParsing="false" onAction="#loadActionScreen" prefHeight="25.0" prefWidth="51.0" text="Back" />
    </children>
 </AnchorPane>

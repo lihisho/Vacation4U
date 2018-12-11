@@ -39,7 +39,7 @@ public class myPurchaseRequestsView extends AView implements Initializable{
 
 
 
-        requestIDCOl.setCellValueFactory(new PropertyValueFactory<>("orderID"));
+        requestIDCOl.setCellValueFactory(new PropertyValueFactory<>("purchaseRequestID"));
 
         flightIDCol.setCellValueFactory(new PropertyValueFactory<>("flightID"));
 
@@ -65,7 +65,7 @@ public class myPurchaseRequestsView extends AView implements Initializable{
 
     }
 
-    public void loadActionScreen() {
+    public void backToProfile() {
         openNewWindow("/actionScreen.fxml", btn_returnHome, 600, 400);
     }
 }

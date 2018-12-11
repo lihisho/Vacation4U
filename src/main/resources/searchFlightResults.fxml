@@ -19,6 +19,6 @@
             <TableColumn fx:id="buyCol" prefWidth="57.0" text="Buy" />
         </columns>
       </TableView>
-      <Button layoutX="99.0" layoutY="229.0" mnemonicParsing="false" text="Back" />
+      <Button fx:id="btn_returnHome" layoutX="99.0" layoutY="229.0" mnemonicParsing="false" onAction="#loadActionScreen" text="Back" />
    </children>
 </AnchorPane>
