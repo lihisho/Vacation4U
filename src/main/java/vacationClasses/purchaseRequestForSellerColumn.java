@@ -40,6 +40,7 @@ public class purchaseRequestForSellerColumn {
         btn_Accept.setOnAction(event -> {//TODO: add the function insert to DB and lists of users the request
             if (!status.equals("approved") || !status.equals("rejected")) {
                 myController.updatePurchaseRequestStatus(purchaseRequestID, "approved");
+                setStatus("approved");
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
                 alert.setContentText("Request Approved successfully. :)");
@@ -57,6 +58,7 @@ public class purchaseRequestForSellerColumn {
         btn_Reject.setOnAction(event -> {//TODO: add the function insert to DB and lists of users the request
             if (!status.equals("approved") || !status.equals("rejected")) {
                 myController.updatePurchaseRequestStatus(purchaseRequestID, "rejected");
+                setStatus("rejected");
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
                 alert.setContentText("Request rejected successfully.  :(");

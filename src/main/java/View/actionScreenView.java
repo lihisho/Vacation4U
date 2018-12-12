@@ -112,7 +112,7 @@ public class actionScreenView extends AView {
                 Parent actionScreen = fxmlLoader.load(is);
                 AView myPurchaseRequestView = fxmlLoader.getController();
                 //flightResults.setMyController(this.myController);
-                Scene newScene = new Scene(actionScreen, 900, 400);
+                Scene newScene = new Scene(actionScreen, 600, 400);
                 Stage curStage = (Stage) btn_viewMyReq.getScene().getWindow();
                 curStage.setScene(newScene);
                 curStage.show();
@@ -137,7 +137,7 @@ public class actionScreenView extends AView {
                 Parent actionScreen = fxmlLoader.load(is);
                 AView myPurchaseRequestView = fxmlLoader.getController();
                 //flightResults.setMyController(this.myController);
-                Scene newScene = new Scene(actionScreen, 900, 400);
+                Scene newScene = new Scene(actionScreen, 800, 400);
                 Stage curStage = (Stage) btn_requestForApprove.getScene().getWindow();
                 curStage.setScene(newScene);
                 curStage.show();
