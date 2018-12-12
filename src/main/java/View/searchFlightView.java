@@ -35,7 +35,7 @@ public class searchFlightView extends AView{
             validateFlightDate(departDate.getValue());
             validateFlightDate(returnDate.getValue());
 
-            ObservableList<flight> returnedFlight = myController.searchFlight(flightDestination.getText(), departDate.getValue().toString(), returnDate.getValue().toString(), Integer.parseInt(numOfPassengers.getText()));
+            ObservableList<flight> returnedFlight = myController.getInstance().searchFlight(flightDestination.getText(), departDate.getValue().toString(), returnDate.getValue().toString(), Integer.parseInt(numOfPassengers.getText()));
             myController.setReturnFlights(returnedFlight);
 
             if (returnedFlight == null)

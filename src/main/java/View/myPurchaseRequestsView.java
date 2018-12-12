@@ -3,41 +3,35 @@ package View;
 import Controller.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 import vacationClasses.*;
-
-import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 
 public class myPurchaseRequestsView extends AView implements Initializable{
 
+
     private Controller controller = Controller.getInstance();
 
     public TableView<purchaseRequestColumn> tableResults;
 
-    public TableColumn<flightSearchColumn, String> requestIDCOl;
-    public TableColumn<flightSearchColumn, String> flightIDCol;
-    public TableColumn<flightSearchColumn, String> statusCol;
-    public TableColumn<flightSearchColumn, Hyperlink> flightDetCol;
-    public TableColumn<flightSearchColumn, Button> payCol;
-
+    public TableColumn<purchaseRequestColumn, String> requestIDCOl;
+    public TableColumn<purchaseRequestColumn, String> flightIDCol;
+    public TableColumn<purchaseRequestColumn, String> statusCol;
+    public TableColumn<purchaseRequestColumn, String> flightDetCol;
+    public TableColumn<purchaseRequestColumn, String> payCol;
     public Button btn_returnHome;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
 
         requestIDCOl.setCellValueFactory(new PropertyValueFactory<>("purchaseRequestID"));
 
@@ -55,8 +49,7 @@ public class myPurchaseRequestsView extends AView implements Initializable{
         ObservableList<purchaseRequest> returnPurchase = controller.gettMyRequest();
         ObservableList<purchaseRequestColumn> data = FXCollections.observableArrayList();
         for (purchaseRequest p : returnPurchase) {
-
-                data.add(new purchaseRequestColumn(p.getPurchaseRequestID(),p.getFlightID(),p.getStatus(),new Hyperlink(),new Button()));//Tal
+            data.add(new purchaseRequestColumn(p.getPurchaseRequestID(),p.getFlightID(),p.getStatus(),new Hyperlink(),new Button()));//Tal
         }
 
         tableResults.setItems(data);

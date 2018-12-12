@@ -2,23 +2,27 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="355.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.actionScreenView">
    <children>
-      <Button fx:id="btn_Update" layoutX="26.0" layoutY="237.0" mnemonicParsing="false" onAction="#loadUpdateForm" prefHeight="43.0" prefWidth="157.0" text="Update your details" />
-      <Button fx:id="btn_Delete" layoutX="26.0" layoutY="184.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="43.0" prefWidth="157.0" text="Delete your user" />
-      <Button fx:id="btn_Search" layoutX="26.0" layoutY="135.0" mnemonicParsing="false" onAction="#loadSearchForm" prefHeight="43.0" prefWidth="157.0" text="Search for other users" />
-      <Button fx:id="btn_returnHome" layoutX="206.0" layoutY="258.0" mnemonicParsing="false" onAction="#loadLoginScreen" prefHeight="43.0" prefWidth="157.0" text="Back To Main Menu" />
-      <Label layoutX="24.0" layoutY="23.0" prefHeight="55.0" prefWidth="318.0" text="Hi there, what would you like to do?">
+      <Button fx:id="btn_Update" layoutX="26.0" layoutY="237.0" mnemonicParsing="false" onAction="#loadUpdateForm" prefHeight="40.0" prefWidth="180.0" text="Update your details" AnchorPane.bottomAnchor="276.0" AnchorPane.leftAnchor="290.0" />
+      <Button fx:id="btn_Delete" layoutX="26.0" layoutY="184.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="40.0" prefWidth="170.0" text="Delete your user" AnchorPane.bottomAnchor="276.0" AnchorPane.leftAnchor="100.0" />
+      <Button fx:id="btn_Search" layoutX="26.0" layoutY="135.0" mnemonicParsing="false" onAction="#loadSearchForm" prefHeight="43.0" prefWidth="210.0" text="Search for other users" />
+      <Button fx:id="btn_returnHome" layoutX="206.0" layoutY="258.0" mnemonicParsing="false" onAction="#loadLoginScreen" prefHeight="40.0" prefWidth="140.0" text="Log off" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="305.0" />
+      <Label layoutX="24.0" layoutY="23.0" prefHeight="55.0" prefWidth="318.0" text="Hi there, what would you like to do?" AnchorPane.leftAnchor="150.0">
          <font>
             <Font size="18.0" />
          </font>
+         <effect>
+            <Glow />
+         </effect>
       </Label>
-      <Button fx:id="btn_addFlight" layoutX="206.0" layoutY="163.0" mnemonicParsing="false" onAction="#loadCreateFlight" prefHeight="43.0" prefWidth="157.0" text="Add new flight" />
-      <Button fx:id="btn_searchFlight" layoutX="206.0" layoutY="92.0" mnemonicParsing="false" onAction="#loadSearchFlight" prefHeight="43.0" prefWidth="157.0" text="Search for flights" />
-      <Button fx:id="btn_viewMyReq" layoutX="395.0" layoutY="92.0" mnemonicParsing="false" onAction="#getMyPurchaseReq" prefHeight="43.0" prefWidth="171.0" text="View my purchasing requests" />
-      <Button fx:id="btn_requestForApprove" layoutX="374.0" layoutY="163.0" mnemonicParsing="false" onAction="#getRequestForSeller" prefHeight="43.0" prefWidth="199.0" text="View requests for approval" />
+      <Button fx:id="btn_addFlight" layoutX="206.0" layoutY="163.0" mnemonicParsing="false" onAction="#loadCreateFlight" prefHeight="43.0" prefWidth="150.0" text="Add new flight" AnchorPane.leftAnchor="430.0" AnchorPane.topAnchor="135.0" />
+      <Button fx:id="btn_searchFlight" layoutX="206.0" layoutY="92.0" mnemonicParsing="false" onAction="#loadSearchFlight" prefHeight="43.0" prefWidth="170.0" text="Search for flights" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="135.0" />
+      <Button fx:id="btn_viewMyReq" layoutX="395.0" layoutY="92.0" mnemonicParsing="false" onAction="#getMyPurchaseReq" prefHeight="43.0" prefWidth="270.0" text="View my purchasing requests" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="195.0" />
+      <Button fx:id="btn_requestForApprove" layoutX="374.0" layoutY="163.0" mnemonicParsing="false" onAction="#getRequestForSeller" prefHeight="43.0" prefWidth="270.0" text="View requests for approval" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="250.0" />
    </children>
 </AnchorPane>

@@ -9,9 +9,7 @@ import javafx.scene.control.Hyperlink;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import vacationClasses.flightSearchColumn;
 import vacationClasses.purchaseRequest;
-import vacationClasses.purchaseRequestColumn;
 import vacationClasses.purchaseRequestForSellerColumn;
 
 import java.net.URL;
@@ -19,22 +17,16 @@ import java.util.ResourceBundle;
 
 
 public class RequestsForSellerView extends AView implements Initializable{
-
     private Controller controller = Controller.getInstance();
-
-
     public TableView<purchaseRequestForSellerColumn> tableResults;
 
-    public TableColumn<flightSearchColumn, String> requestIDCOl;
-    public TableColumn<flightSearchColumn, String> flightIDCol;
-    public TableColumn<flightSearchColumn, String> purchaserCol;
-
-    public TableColumn<flightSearchColumn, String> statusCol;
-    public TableColumn<flightSearchColumn, Hyperlink> flightDetCol;
-    public TableColumn<flightSearchColumn, Button> ActionCol1;
-    public TableColumn<flightSearchColumn, Button> ActionCol2;
-
-
+    public TableColumn<purchaseRequestForSellerColumn, String> requestIDCOl;
+    public TableColumn<purchaseRequestForSellerColumn, String> flightIDCol;
+    public TableColumn<purchaseRequestForSellerColumn, String> purchaserCol;
+    public TableColumn<purchaseRequestForSellerColumn, String> statusCol;
+    public TableColumn<purchaseRequestForSellerColumn, String> flightDetCol;
+    public TableColumn<purchaseRequestForSellerColumn, String> ActionCol1;
+    public TableColumn<purchaseRequestForSellerColumn, String> ActionCol2;
     public Button btn_returnHome;
 
     @Override
@@ -42,24 +34,15 @@ public class RequestsForSellerView extends AView implements Initializable{
 
 
         requestIDCOl.setCellValueFactory(new PropertyValueFactory<>("purchaseRequestID"));
-
         flightIDCol.setCellValueFactory(new PropertyValueFactory<>("flightID"));
-
         purchaserCol.setCellValueFactory(new PropertyValueFactory<>("purchaserUserName"));
-
-
         statusCol.setCellValueFactory(new PropertyValueFactory<>("status"));
-
         ActionCol1.setCellValueFactory(new PropertyValueFactory<>("btn_Accept"));
         ActionCol2.setCellValueFactory(new PropertyValueFactory<>("btn_Reject"));
-
-
         flightDetCol.setCellValueFactory(new PropertyValueFactory<>("Hyl_flightDetails"));
-
-
-
+         Button btn_returnHome;
         // buycolumn.setCellValueFactory(new PropertyValueFactory<>("btn_buy"));
-        ObservableList<purchaseRequest> returnPurchase = controller.gettMyRequest();
+        ObservableList<purchaseRequest> returnPurchase = controller.gettSellerRequest();
         ObservableList<purchaseRequestForSellerColumn> data = FXCollections.observableArrayList();
         for (purchaseRequest p : returnPurchase) {
                 data.add(new purchaseRequestForSellerColumn(p.getPurchaseRequestID(),p.getFlightID(),p.getPurchaserUserName(),p.getStatus(),new Hyperlink(),new Button(),new Button()));//Tal

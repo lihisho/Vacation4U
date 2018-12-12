@@ -32,7 +32,7 @@ public class purchaseRequestForSellerColumn {
         btn_Accept = _accept;
         btn_Accept.setText("Accept");
         btn_Reject = _reject;
-        btn_Reject.setText("Accept");
+        btn_Reject.setText("Reject");
         Hyl_flightDetails = _flightDetails;
         Hyl_flightDetails.setText("See flight Details");
 
@@ -117,7 +117,7 @@ public class purchaseRequestForSellerColumn {
     }
 
     public String getFlightID() {
-        return purchaseRequestID;
+        return flightID;
     }
 
     public void setFlightID(String flightID) {
@@ -148,19 +148,19 @@ public class purchaseRequestForSellerColumn {
         this.status = status;
     }
 
-    public Button getButtonAccept() {
+    public Button getBtn_Accept() {
         return btn_Accept;
     }
 
-    public void setButtonAccept(Button accept) {
-        this.btn_Accept = accept;
+    public void setBtn_Accept(Button btn_Accept) {
+        this.btn_Accept = btn_Accept;
     }
 
-    public Button getButtonReject() {
+    public Button getBtn_Reject() {
         return btn_Reject;
     }
 
-    public void setButtonReject(Button reject) {
-        this.btn_Reject = reject;
+    public void setBtn_Reject(Button btn_Reject) {
+        this.btn_Reject = btn_Reject;
     }
 }

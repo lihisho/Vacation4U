@@ -188,7 +188,7 @@ public abstract class AView {
             InputStream is= this.getClass().getResource(fxmlName).openStream();
             Parent parent = fxmlLoader.load(is);
             AView newView = fxmlLoader.getController();
-            newView.setMyController(this.myController);
+            newView.setMyController(this.myController.getInstance());
             Scene newScene = new Scene(parent,width,height);
             Stage curStage = (Stage) btn.getScene().getWindow();
             curStage.setScene(newScene);

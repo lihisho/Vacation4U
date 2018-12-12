@@ -33,10 +33,10 @@ public class paymentView extends AView {
         }
         monthChoose.setItems(months);
     }
-    //Set a list of years(the next 5 years).
+    //Set a list of years(the next 6 years).
     public void set_years(){
         ObservableList<String> years= FXCollections.observableArrayList();
-        for(int i=2018;i<5;i++) {
+        for(int i=2018;i<2024;i++) {
             years.add(""+i);
         }
         yearChoose.setItems(years);
@@ -46,11 +46,11 @@ public class paymentView extends AView {
         displayInformationMessage("payment completed successfully", "Payment confirmation");
         myController.deleteFlight(flightID);
         myController.updatePurchaseRequestStatus(purchaseRequestID, "Done");
-        openNewWindow("actionScreen.fxml", btn_pay, 400,400);
+        openNewWindow("/actionScreen.fxml", btn_pay, 600,450);
     }
     //Cancel button.
     public void handleCancelButton(){
-        openNewWindow("actionScreen.fxml", btn_cancel, 400,400);
+        openNewWindow("/actionScreen.fxml", btn_cancel, 600,450);
     }
 
     public String getPurchaseRequestID() {

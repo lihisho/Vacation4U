@@ -28,7 +28,7 @@ public class actionScreenView extends AView {
     public Button btn_viewMyReq;
     public Button btn_requestForApprove;
     //Yafit
-    public Button btn_myPurchasingRequest;
+    //public Button btn_myPurchasingRequest;
 
 
     /**
@@ -91,12 +91,12 @@ public class actionScreenView extends AView {
      * loads the login screen after a request to return to the home page is invoked.
      */
     public void loadLoginScreen(){
-        openNewWindow("/login.fxml", btn_returnHome, 500,400);
+        openNewWindow("/login.fxml", btn_returnHome, 500,300);
     }
 //Yafit
-    public void loadMyPurchaseRequestsScreen() {openNewWindow("/myPurchaseRequests.fxml", btn_myPurchasingRequest, 500, 400);}
+    //public void loadMyPurchaseRequestsScreen() {openNewWindow("/myPurchaseRequests.fxml", btn_requestForApprove, 500, 400);}
 //Tal
-    public void loadSearchFlight(){openNewWindow("/searchFlight.fxml",btn_searchFlight,600,400);}
+    public void loadSearchFlight(){openNewWindow("/searchFlight.fxml",btn_searchFlight,450,300);}
 
     public void loadCreateFlight(){openNewWindow("/createFlight.fxml",btn_addFlight,600,400);}
     public void getMyPurchaseReq(){
@@ -133,7 +133,7 @@ public class actionScreenView extends AView {
             else {
 
                 FXMLLoader fxmlLoader = new FXMLLoader();
-                InputStream is = this.getClass().getResource("/myPurchaseRequests.fxml").openStream();
+                InputStream is = this.getClass().getResource("/myRequestsForSeller.fxml").openStream();
                 Parent actionScreen = fxmlLoader.load(is);
                 AView myPurchaseRequestView = fxmlLoader.getController();
                 //flightResults.setMyController(this.myController);
@@ -141,6 +141,7 @@ public class actionScreenView extends AView {
                 Stage curStage = (Stage) btn_requestForApprove.getScene().getWindow();
                 curStage.setScene(newScene);
                 curStage.show();
+                is.close();
 
 
             }

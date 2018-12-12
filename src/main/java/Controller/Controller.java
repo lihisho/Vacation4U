@@ -26,19 +26,15 @@ public class Controller {
 
     //constructor
     //public Controller(IModel myModel) {
-    public Controller() {//Tal
-
-    //this.myModel=myModel;
-        //Tal
+    public Controller() {
         this.myModel=MyModel.getInstance();
-        }
+    }
 
     //Tal
     public static Controller getInstance() {
         if (singleton == null)
             singleton = new Controller();
         return singleton;
-
     }
 
     /**
@@ -162,7 +158,7 @@ public class Controller {
     }
 
     public void setSellerRequest(ObservableList<purchaseRequest> sellerRequest) {
-        this.sellerRequest = myRequest;
+        this.sellerRequest = sellerRequest;
     }
     public ObservableList<purchaseRequest> gettSellerRequest() {
         return sellerRequest;

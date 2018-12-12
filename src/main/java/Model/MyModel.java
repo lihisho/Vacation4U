@@ -511,7 +511,7 @@ public class MyModel implements IModel {
     }
 
     public boolean updatePurchaseRequestStatus(String purchaseRequestID, String status){
-        String sql = "UPDATE purchaseRequest SET status = ? " +
+        String sql = "UPDATE purchaseRequests SET status = ? " +
                 "WHERE purchaseRequest_id = ?";
 
         try {

@@ -5,19 +5,19 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="486.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.myPurchaseRequestsView">
+<AnchorPane prefHeight="332.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.RequestsForSellerView">
    <children>
-      <TableView fx:id="tableResults" layoutX="8.0" layoutY="4.0" prefHeight="389.0" prefWidth="689.0">
+      <TableView fx:id="tableResults" layoutX="6.0" layoutY="6.0" prefHeight="248.0" prefWidth="689.0">
         <columns>
           <TableColumn fx:id="requestIDCOl" prefWidth="75.0" text="RequestID" />
           <TableColumn fx:id="flightIDCol" prefWidth="75.0" text="FlightID" />
             <TableColumn fx:id="purchaserCol" prefWidth="113.0" text="Purchaser" />
             <TableColumn fx:id="statusCol" prefWidth="89.0" text="Status" />
-            <TableColumn prefWidth="113.0" text="Flight Details" />
+            <TableColumn fx:id="flightDetCol" prefWidth="113.0" text="Flight Details" />
             <TableColumn fx:id="ActionCol1" prefWidth="113.0" text="Action1" />
             <TableColumn fx:id="ActionCol2" prefWidth="113.0" text="Action2" />
         </columns>
       </TableView>
-      <Button layoutX="536.0" layoutY="431.0" mnemonicParsing="false" text="Back To Profile" />
+      <Button fx:id="btn_returnHome" layoutX="488.0" layoutY="285.0" mnemonicParsing="false" onAction="#loadActionScreen" text="Back To Profile" />
    </children>
 </AnchorPane>

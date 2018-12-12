@@ -14,6 +14,8 @@ import java.io.InputStream;
 
 public class purchaseRequestColumn {
     Controller myController;
+
+
     public String purchaseRequestID;
     public String flightID;
     public String status;
@@ -40,7 +42,7 @@ public class purchaseRequestColumn {
                     Parent parent = fxmlLoader.load(is);
                     paymentView payView = fxmlLoader.getController();
                     payView.setMyController(this.myController);
-                    Scene newScene = new Scene(parent, 400, 500);
+                    Scene newScene = new Scene(parent, 500, 500);
                     Stage curStage = (Stage) btn_pay.getScene().getWindow();
                     curStage.setScene(newScene);
                     payView.setPurchaseRequestID(purchaseRequestID);
@@ -93,10 +95,48 @@ public class purchaseRequestColumn {
                 alert.showAndWait();
             }
 
-
-            //TODO: add tals code: show details.
         });
 
     }
+    public String getPurchaseRequestID() {
+        return purchaseRequestID;
+    }
+
+    public void setPurchaseRequestID(String purchaseRequestID) {
+        this.purchaseRequestID = purchaseRequestID;
+    }
+
+    public String getFlightID() {
+        return flightID;
+    }
+
+    public void setFlightID(String flightID) {
+        this.flightID = flightID;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Button getBtn_pay() {
+        return btn_pay;
+    }
+
+    public void setBtn_pay(Button btn_pay) {
+        this.btn_pay = btn_pay;
+    }
+
+    public Hyperlink getHyl_flightDetails() {
+        return Hyl_flightDetails;
+    }
+
+    public void setHyl_flightDetails(Hyperlink hyl_flightDetails) {
+        Hyl_flightDetails = hyl_flightDetails;
+    }
+
 
 }

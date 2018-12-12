@@ -5,9 +5,9 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="599.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.myPurchaseRequestsView">
+<AnchorPane prefHeight="400.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.myPurchaseRequestsView">
    <children>
-      <TableView fx:id="tableResults" layoutX="7.0" layoutY="14.0" prefHeight="310.0" prefWidth="578.0">
+      <TableView fx:id="tableResults" layoutX="7.0" layoutY="14.0" prefHeight="310.0" prefWidth="456.0">
         <columns>
           <TableColumn fx:id="requestIDCOl" prefWidth="75.0" text="requestID" />
           <TableColumn fx:id="flightIDCol" text="FlightID" />
@@ -16,6 +16,6 @@
             <TableColumn fx:id="payCol" prefWidth="97.0" text="Pay" />
         </columns>
       </TableView>
-      <Button fx:id="btn_backToProfile" layoutX="435.0" layoutY="345.0" mnemonicParsing="false" onAction="#backToProfile" prefHeight="25.0" prefWidth="118.0" text="Back To My Profile" />
+      <Button fx:id="btn_returnHome" layoutX="283.0" layoutY="348.0" mnemonicParsing="false" onAction="#backToProfile" prefHeight="25.0" prefWidth="118.0" text="Back To My Profile" />
    </children>
 </AnchorPane>

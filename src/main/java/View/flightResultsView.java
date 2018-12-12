@@ -34,46 +34,8 @@ public class flightResultsView extends AView implements Initializable{
     public TableColumn<flightSearchColumn, String> detailsCol;
     public Button btn_returnHome;
 
-    /*flightResultsView(){
-        tableResults=new TableView<flight>();
-
-        TableColumn dest = new TableColumn("Destination");
-        TableColumn departDate = new TableColumn("Departure Date");
-        TableColumn returnDate = new TableColumn("Return Date");
-        TableColumn numPassengers = new TableColumn("Number of Passangers");
-        TableColumn luggageWeight = new TableColumn("Luggage Weight");
-        TableColumn price=new TableColumn("price");
-        TableColumn supplierUser = new TableColumn("Supplier user name");
-        tableResults.getColumns().addAll(dest,departDate,returnDate,numPassengers,luggageWeight,price,supplierUser);
-
-    }
-
-    public void setResults() {
-        ObservableList<flight> returnFlights = myController.getReturnFlights();
-        ObservableList<flightSearchColumn> data = FXCollections.observableArrayList();
-        for (flight f : returnFlights) {
-            data.add(new flightSearchColumn(f, new Button()));
-        }
-
-        tableResults.setItems(data);
-    }*/
-
-        @Override
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-
-        //tableResults=new TableView<>();
-        /*//fID = new TableColumn("flight ID");
-        destination = new TableColumn("Destination");
-        from = new TableColumn("from");
-        departDate = new TableColumn("Depurture Date");
-        returnDate = new TableColumn("Return Date");
-        supplier = new TableColumn("Supplier userName");
-        buycolumn = new TableColumn("Buy");
-*/
-
-
-
         from.setCellValueFactory(new PropertyValueFactory<>("from"));
 
         destination.setCellValueFactory(new PropertyValueFactory<>("destination"));
@@ -90,14 +52,14 @@ public class flightResultsView extends AView implements Initializable{
 
         buyCol.setCellValueFactory(new PropertyValueFactory<>("btnBuy"));
 
-            // buycolumn.setCellValueFactory(new PropertyValueFactory<>("btn_buy"));
-            ObservableList<flight> returnFlights = controller.getReturnFlights();
-            ObservableList<flightSearchColumn> data = FXCollections.observableArrayList();
-            for (flight f : returnFlights) {
-                data.add(new flightSearchColumn(f.getFlightID(),f.getFrom(),f.getDestination(),f.getDepartDate(),f.getReturnDate(),f.getSupplierUserName(),f.getPrice(), new Button(),new Button()));//Tal
-            }
+        // buycolumn.setCellValueFactory(new PropertyValueFactory<>("btn_buy"));
+        ObservableList<flight> returnFlights = controller.getReturnFlights();
+        ObservableList<flightSearchColumn> data = FXCollections.observableArrayList();
+        for (flight f : returnFlights) {
+            data.add(new flightSearchColumn(f.getFlightID(),f.getFrom(),f.getDestination(),f.getDepartDate(),f.getReturnDate(),f.getSupplierUserName(),f.getPrice(), new Button(),new Button()));//Tal
+        }
 
-            tableResults.setItems(data);
+        tableResults.setItems(data);
 
         //tableResults.getColumns().addAll(from,destination,departDate,returnDate,supplier);
 
