@@ -2,27 +2,40 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="355.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.actionScreenView">
+<AnchorPane prefHeight="416.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.actionScreenView">
    <children>
-      <Button fx:id="btn_Update" layoutX="26.0" layoutY="237.0" mnemonicParsing="false" onAction="#loadUpdateForm" prefHeight="40.0" prefWidth="180.0" text="Update your details" AnchorPane.bottomAnchor="276.0" AnchorPane.leftAnchor="290.0" />
-      <Button fx:id="btn_Delete" layoutX="26.0" layoutY="184.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="40.0" prefWidth="170.0" text="Delete your user" AnchorPane.bottomAnchor="276.0" AnchorPane.leftAnchor="100.0" />
-      <Button fx:id="btn_Search" layoutX="26.0" layoutY="135.0" mnemonicParsing="false" onAction="#loadSearchForm" prefHeight="43.0" prefWidth="210.0" text="Search for other users" />
-      <Button fx:id="btn_returnHome" layoutX="206.0" layoutY="258.0" mnemonicParsing="false" onAction="#loadLoginScreen" prefHeight="40.0" prefWidth="140.0" text="Log off" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="305.0" />
-      <Label layoutX="24.0" layoutY="23.0" prefHeight="55.0" prefWidth="318.0" text="Hi there, what would you like to do?" AnchorPane.leftAnchor="150.0">
+      <Button fx:id="btn_Update" layoutX="447.0" layoutY="121.0" mnemonicParsing="false" onAction="#loadUpdateForm" prefHeight="33.0" prefWidth="130.0" text="Update your details" AnchorPane.leftAnchor="447.0" AnchorPane.topAnchor="121.0" />
+      <Button fx:id="btn_returnHome" layoutX="447.0" layoutY="166.0" mnemonicParsing="false" onAction="#loadLoginScreen" prefHeight="33.0" prefWidth="130.0" text="Log off" AnchorPane.leftAnchor="447.0" AnchorPane.topAnchor="166.0" />
+      <Button fx:id="btn_Delete" layoutX="447.0" layoutY="210.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="40.0" prefWidth="130.0" text="Delete your user" AnchorPane.leftAnchor="447.0" AnchorPane.topAnchor="210.0">
+         <graphic>
+            <ImageView fitHeight="14.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@/deleteIcon.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="btn_Search" layoutX="17.0" layoutY="121.0" mnemonicParsing="false" onAction="#loadSearchForm" prefHeight="33.0" prefWidth="162.0" text="Search for other users" />
+      <Button fx:id="btn_addFlight" layoutX="211.0" layoutY="122.0" mnemonicParsing="false" onAction="#loadCreateVaction" prefHeight="33.0" prefWidth="210.0" text="Add new vacation" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="122.0" />
+      <Button fx:id="btn_searchVacation" layoutX="17.0" layoutY="167.0" mnemonicParsing="false" onAction="#loadSearchVacation" prefHeight="33.0" prefWidth="162.0" text="Search for flights" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="167.0" />
+      <Button fx:id="btn_viewMyReq" layoutX="211.0" layoutY="166.0" mnemonicParsing="false" onAction="#getMyPurchaseReq" prefHeight="33.0" prefWidth="210.0" text="View my purchasing requests" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="166.0" />
+      <Button fx:id="btn_requestForApprove" layoutX="211.0" layoutY="204.0" mnemonicParsing="false" onAction="#getRequestForSeller" prefHeight="33.0" prefWidth="210.0" text="View purchases for approval" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="204.0" />
+      <Label fx:id="lbl_currUserName" layoutX="58.0" layoutY="24.0" prefHeight="40.0" prefWidth="464.0" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font size="18.0" />
-         </font>
-         <effect>
-            <Glow />
-         </effect>
-      </Label>
-      <Button fx:id="btn_addFlight" layoutX="206.0" layoutY="163.0" mnemonicParsing="false" onAction="#loadCreateFlight" prefHeight="43.0" prefWidth="150.0" text="Add new flight" AnchorPane.leftAnchor="430.0" AnchorPane.topAnchor="135.0" />
-      <Button fx:id="btn_searchFlight" layoutX="206.0" layoutY="92.0" mnemonicParsing="false" onAction="#loadSearchFlight" prefHeight="43.0" prefWidth="170.0" text="Search for flights" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="135.0" />
-      <Button fx:id="btn_viewMyReq" layoutX="395.0" layoutY="92.0" mnemonicParsing="false" onAction="#getMyPurchaseReq" prefHeight="43.0" prefWidth="270.0" text="View my purchasing requests" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="195.0" />
-      <Button fx:id="btn_requestForApprove" layoutX="374.0" layoutY="163.0" mnemonicParsing="false" onAction="#getRequestForSeller" prefHeight="43.0" prefWidth="270.0" text="View requests for approval" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="250.0" />
+            <Font name="Calibri Bold" size="18.0" />
+         </font></Label>
+      <Label layoutX="17.0" layoutY="87.0" prefHeight="17.0" prefWidth="80.0" text="Search:" underline="true" />
+      <Label layoutX="210.0" layoutY="88.0" prefHeight="17.0" prefWidth="80.0" text="Vacations:" underline="true" />
+      <Separator layoutX="432.0" layoutY="91.0" orientation="VERTICAL" prefHeight="259.0" prefWidth="6.0" />
+      <Separator layoutX="184.0" layoutY="95.0" orientation="VERTICAL" prefHeight="249.0" prefWidth="6.0" />
+      <Label layoutX="447.0" layoutY="88.0" prefHeight="17.0" prefWidth="80.0" text="User actions:" underline="true" />
+      <Button fx:id="btn_swapRequestForApprove" layoutX="211.0" layoutY="290.0" mnemonicParsing="false" onAction="#getSwapRequestsForSeller" prefHeight="33.0" prefWidth="220.0" text="View swap requests for approval" />
+      <Button fx:id="btn_mySwapRequests" layoutX="211.0" layoutY="250.0" mnemonicParsing="false" onAction="#getMyHandedSwapRequests" prefHeight="33.0" prefWidth="220.0" text="View my swap requests" />
+
    </children>
 </AnchorPane>

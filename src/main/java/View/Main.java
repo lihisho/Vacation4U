@@ -23,8 +23,9 @@ public class Main extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader();
         InputStream is= this.getClass().getResource("/Login.fxml").openStream();
         Parent root = (Parent)fxmlLoader.load(is);
-        Scene Scene = new Scene(root, 500, 300);
-        primaryStage.setScene(Scene);
+        Scene scene = new Scene(root, 500, 300);
+        scene.getStylesheets().add(loginView.class.getResource("/LoginCss.css").toExternalForm());
+        primaryStage.setScene(scene);
         MyModel myModel=new MyModel();
         Controller myController = new Controller();
         AView view=fxmlLoader.getController();

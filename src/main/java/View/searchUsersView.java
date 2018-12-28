@@ -77,7 +77,7 @@ public class searchUsersView extends AView {
     }
 
     public void loadActionForm(){
-        openNewWindow("/actionScreen.fxml", btn_returnHome , 600,400);
+        openNewWindow("/actionScreen.fxml", btn_returnHome , 600,450);
 
     }
 

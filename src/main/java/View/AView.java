@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.io.InputStream;
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -190,6 +191,12 @@ public abstract class AView {
             AView newView = fxmlLoader.getController();
             newView.setMyController(this.myController.getInstance());
             Scene newScene = new Scene(parent,width,height);
+            if(fxmlName.equals("/login.fxml"))
+                newScene.getStylesheets().add(loginView.class.getResource("/LoginCss.css").toExternalForm());
+            else if (fxmlName.equals("/searchFlights.fxml") || fxmlName.equals("/searchVacation.fxml"))
+                newScene.getStylesheets().add(loginView.class.getResource("/search.css").toExternalForm());
+            else
+                newScene.getStylesheets().add(loginView.class.getResource("/actions.css").toExternalForm());
             Stage curStage = (Stage) btn.getScene().getWindow();
             curStage.setScene(newScene);
             curStage.show();
@@ -199,14 +206,14 @@ public abstract class AView {
         }
     }
     /**
-     * Checks that the user add future flight
+     * Checks that the user add future Vacation
      * @param dateToCheck - the given date
      */
-    protected void validateFlightDate(LocalDate dateToCheck)throws Exception{
+    protected void validateVacationDate(LocalDate dateToCheck)throws Exception{
         //validate that the user is above the age of 18
         LocalDate currentDate = LocalDate.now();
         if(dateToCheck==null||!dateToCheck.isAfter(currentDate)) {
-            displayErrorMessage("You can add only future flights.", "fail");
+            displayErrorMessage("You can add only future vacations.", "fail");
             throw new Exception();
         }
 
@@ -216,8 +223,51 @@ public abstract class AView {
         //validate that the user is above the age of 18
         LocalDate currentDate = LocalDate.now();
         if (destination==null||destination.equals("") ){
-            displayErrorMessage("you must enter this field.", "fail");
+            displayErrorMessage("you must enter Destination field.", "fail");
             throw new Exception();
         }
+    }
+
+    protected void validateEmailAddress(String email) throws Exception{
+        isNotEmpty(email);
+        if(!email.matches("\\b[\\w.%-]+@[-.\\w]+\\.[A-Za-z]{2,4}\\b")) {
+            displayErrorMessage("Please enter an email in the form of name@domain.com or name@domain.co.il", "fail");
+            throw new Exception();
+        }
+        //check whether the given email already exist in database
+        if (myController.searchEmail(email)) {
+            displayErrorMessage("The given email already exist. Please enter another email", "fail");
+            throw new Exception();
+        }
+
+    }
+    protected void validatePhoneNum(String phone) throws Exception{
+        isNotEmpty(phone);
+
+        if(!(phone.length()==10 ||(phone.length()== 11 && phone.charAt(3)=='-'))){
+            displayErrorMessage("Please enter phone number in the form of 111-1111111 or 1111111111", "fail");
+            throw new Exception();
+        }
+        else  if(phone.length()==11) {
+            String[] splitted=phone.split("-");
+            for(int i=0;i<splitted.length;i++){
+                try {
+                    Integer.parseInt(splitted[i]);
+                }
+                catch (Exception e){
+                    displayErrorMessage("Please enter phone number in the form of 111-1111111 or 1111111111", "fail");
+                    throw new Exception();
+                }
+            }
+        }else if(phone.length()==10){
+            try {
+                Integer.parseInt(phone);
+            }
+            catch (Exception e){
+                displayErrorMessage("Please enter phone number in the form of 111-1111111 or 1111111111", "fail");
+                throw new Exception();
+            }
+        }
+
     }
 }//AView

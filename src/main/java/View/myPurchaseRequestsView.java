@@ -59,6 +59,6 @@ public class myPurchaseRequestsView extends AView implements Initializable{
     }
 
     public void backToProfile() {
-        openNewWindow("/actionScreen.fxml", btn_returnHome, 600, 400);
+        openNewWindow("/actionScreen.fxml", btn_returnHome, 600, 450);
     }
 }

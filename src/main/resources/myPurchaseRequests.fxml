@@ -5,17 +5,17 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="462.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.myPurchaseRequestsView">
+<AnchorPane prefHeight="400.0" prefWidth="701.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.myPurchaseRequestsView">
    <children>
-      <TableView fx:id="tableResults" layoutX="7.0" layoutY="14.0" prefHeight="310.0" prefWidth="456.0">
+      <TableView fx:id="tableResults" layoutY="14.0" prefHeight="310.0" prefWidth="701.0">
         <columns>
-          <TableColumn fx:id="requestIDCOl" prefWidth="75.0" text="requestID" />
-          <TableColumn fx:id="flightIDCol" text="FlightID" />
-            <TableColumn fx:id="statusCol" prefWidth="97.0" text="Status" />
-            <TableColumn fx:id="flightDetCol" prefWidth="97.0" text="Flight Details" />
-            <TableColumn fx:id="payCol" prefWidth="97.0" text="Pay" />
+          <TableColumn fx:id="requestIDCOl" prefWidth="77.99998474121094" text="requestID" />
+          <TableColumn fx:id="flightIDCol" prefWidth="72.0" text="FlightID" />
+            <TableColumn fx:id="statusCol" prefWidth="141.0" text="Status" />
+            <TableColumn fx:id="flightDetCol" prefWidth="158.0" text="Flight Details" />
+            <TableColumn fx:id="payCol" minWidth="0.0" prefWidth="251.0" text="Payment Details" />
         </columns>
       </TableView>
-      <Button fx:id="btn_returnHome" layoutX="283.0" layoutY="348.0" mnemonicParsing="false" onAction="#backToProfile" prefHeight="25.0" prefWidth="118.0" text="Back To My Profile" />
+      <Button fx:id="btn_returnHome" layoutX="29.0" layoutY="346.0" mnemonicParsing="false" onAction="#backToProfile" prefHeight="25.0" prefWidth="118.0" text="Back To My Profile" />
    </children>
 </AnchorPane>

@@ -19,6 +19,8 @@ public class updateView extends AView{
     public TextField txtfld_privateName;
     public TextField txtfld_lastName;
     public TextField txtfld_residence;
+    public TextField txtfld_email;
+    public TextField txtfld_phoneNum;
     public Button btn_update;
     //current user that login in the system
     User currUser;
@@ -51,6 +53,11 @@ public class updateView extends AView{
     public String getResidence(){
         return txtfld_residence.getText();
     }
+    public String getPhoneNum(){
+        return txtfld_phoneNum.getText();
+    }
+    public String getEmail(){ return txtfld_email.getText();
+    }
 
     /**
      * A function that validates user's details before sending them to the controller
@@ -64,8 +71,10 @@ public class updateView extends AView{
             validateDateOfBirth(getDateOfBirth());
             validateFullName(getPrivateName(),getLastName());
             validateResidence(getResidence());
+            validatePhoneNum(getPhoneNum());
+            validateEmailAddress(getEmail());
             if (myController.updateUser(getNewUsername(),getNewPassword(),
-                    getPrivateName(),getLastName(),convertDateToString(getDateOfBirth()),getResidence())) {
+                    getPrivateName(),getLastName(),convertDateToString(getDateOfBirth()),getResidence(),getPhoneNum(),getEmail())) {
                 displayInformationMessage("User was updated successfully.", "update succeeded");
                 backToActionScreen();
             }
@@ -82,8 +91,11 @@ public class updateView extends AView{
         currUser= myController.showDetails(null);
         txtfld_newUsername.setText(currUser.getUsername());
         txtfld_newPassword.setText(currUser.getPassword());
+        txtfld_passwordConfirmation.setText(currUser.getPassword());
         txtfld_privateName.setText(currUser.getFirstname());
         txtfld_lastName.setText(currUser.getLastname());
+        txtfld_email.setText(currUser.getEmail());
+        txtfld_phoneNum.setText(currUser.getPhoneNumber());
         String[] parts = currUser.getBirthdate().split("/");
 
         dateP_dateOfBirth.setValue(LocalDate.of(Integer.parseInt(parts[2]),Integer.parseInt(parts[1]),Integer.parseInt(parts[0])));
@@ -94,7 +106,7 @@ public class updateView extends AView{
      * A function that go back to ActionScreen
      */
     public void backToActionScreen(){
-        openNewWindow("/actionScreen.fxml",btn_update,600,400);
+        openNewWindow("/actionScreen.fxml",btn_update,600,350);
         FXMLLoader fxmlLoader = new FXMLLoader();
     }
 }

@@ -8,27 +8,31 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.updateView">
+<AnchorPane prefHeight="491.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.updateView">
    <children>
-      <Label layoutX="55.0" layoutY="76.0" text="User name" />
-      <Label layoutX="58.0" layoutY="112.0" text="Password" />
-      <Label layoutX="58.0" layoutY="192.0" text="Date of birth" />
+      <Label layoutX="50.0" layoutY="76.0" prefHeight="17.0" prefWidth="65.0" text="User name" />
+      <Label layoutX="53.0" layoutY="112.0" text="Password" />
+      <Label layoutX="55.0" layoutY="192.0" prefHeight="17.0" prefWidth="72.0" text="Date of birth" />
       <Label layoutX="53.0" layoutY="154.0" text="Password confirmation" />
-      <Label layoutX="56.0" layoutY="310.0" text="Residence" />
-      <Label layoutX="57.0" layoutY="233.0" text="First name" />
+      <Label layoutX="58.0" layoutY="301.0" text="Residence" />
+      <Label layoutX="55.0" layoutY="233.0" prefHeight="17.0" prefWidth="57.0" text="First name" />
       <Label layoutX="56.0" layoutY="269.0" text="Last name" />
-      <Button fx:id="btn_update" layoutX="203.0" layoutY="349.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="25.0" prefWidth="149.0" text="Update" />
+      <Button fx:id="btn_update" layoutX="225.0" layoutY="406.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="25.0" prefWidth="79.0" text="Update" />
       <TextField fx:id="txtfld_newUsername" layoutX="203.0" layoutY="72.0" />
       <TextField fx:id="txtfld_newPassword" layoutX="203.0" layoutY="108.0" />
       <TextField fx:id="txtfld_passwordConfirmation" alignment="TOP_LEFT" layoutX="203.0" layoutY="150.0" />
       <TextField fx:id="txtfld_privateName" layoutX="203.0" layoutY="229.0" />
       <TextField fx:id="txtfld_lastName" layoutX="203.0" layoutY="265.0" />
-      <TextField fx:id="txtfld_residence" layoutX="203.0" layoutY="306.0" />
+      <TextField fx:id="txtfld_residence" layoutX="203.0" layoutY="297.0" />
       <DatePicker fx:id="dateP_dateOfBirth" layoutX="204.0" layoutY="188.0" />
       <TextArea layoutX="15.0" layoutY="3.0" prefHeight="65.0" prefWidth="419.0" text="Here are your current details.&#10;If you want to change them, edit your details and then press&#10;the &quot;Update&quot; buttun.">
          <font>
             <Font name="Arial" size="12.0" />
          </font></TextArea>
-      <Button fx:id="btn_back" layoutX="377.0" layoutY="349.0" mnemonicParsing="false" onAction="#backToActionScreen" text="Back" />
+      <Button fx:id="btn_back" layoutX="225.0" layoutY="441.0" mnemonicParsing="false" onAction="#backToActionScreen" prefHeight="25.0" prefWidth="79.0" text="Cancel" />
+      <TextField fx:id="txtfld_email" layoutX="203.0" layoutY="333.0" />
+      <Label layoutX="57.0" layoutY="337.0" prefHeight="17.0" prefWidth="50.0" text="Email" />
+      <TextField fx:id="txtfld_phoneNum" layoutX="203.0" layoutY="371.0" />
+      <Label layoutX="57.0" layoutY="376.0" prefHeight="17.0" prefWidth="87.0" text="Phone number" />
    </children>
 </AnchorPane>

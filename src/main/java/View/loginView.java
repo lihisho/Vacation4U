@@ -50,7 +50,8 @@ public class loginView extends AView{
             Parent createForm = fxmlLoader.load(is);
             CreateUserView create =fxmlLoader.getController();
             create.setMyController(this.myController);
-            Scene newScene = new Scene(createForm,500,400);
+            Scene newScene = new Scene(createForm,500,500);
+            newScene.getStylesheets().add(actionScreenView.class.getResource("/actions.css").toExternalForm());
             Stage curStage = (Stage) hpl_createUser.getScene().getWindow();
             curStage.setScene(newScene);
             create.setDeafultDate();
@@ -76,7 +77,7 @@ public class loginView extends AView{
             isNotEmpty(pass);
             //if both username and password are not empty
             if(myController.login(this.getUserName(), this.getPassword()))
-                openNewWindow("/actionScreen.fxml", btn_login , 600,400);
+                openNewWindow("/actionScreen.fxml", btn_login , 600,450);
             else
                 displayErrorMessage("Username or password are incorrect. Please try again","Log in failed!");
 
@@ -90,7 +91,7 @@ public class loginView extends AView{
      * This function loads the screen in which the user can read details of a specific user.
      */
     public void handleSearchUserLink() {
-        openNewWindow("/searchUsersLogin.fxml",btn_login,600,400);
+        openNewWindow("/searchUsersLogin.fxml",btn_login,600,300);
 
     }
 

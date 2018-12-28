@@ -27,6 +27,8 @@ public class CreateUserView extends AView
     public TextField txtfld_privateName;
     public TextField txtfld_lastName;
     public TextField txtfld_residence;
+    public TextField txtfld_phoneNumber;
+    public TextField txtfld_email;
     public Button btn_done;
     public Button btn_returnToLogin;
 
@@ -60,6 +62,15 @@ public class CreateUserView extends AView
         return txtfld_residence.getText();
     }
 
+    public String getEmail(){
+        return txtfld_email.getText();
+    }
+
+    public String getPhoneNum(){
+        return txtfld_phoneNumber.getText();
+    }
+
+
     public void setDeafultDate (){
         dateP_dateOfBirth.setValue(LocalDate.of(Year.now().getValue(), MonthDay.now().getMonth().getValue(), MonthDay.now().getDayOfMonth()));
     }
@@ -75,9 +86,11 @@ public class CreateUserView extends AView
             validateFullName(getPrivateName(),getLastName());
             validateResidence(getResidence());
             validateDateOfBirth(getDateOfBirth());
+            validateEmailAddress(getEmail());
+            validatePhoneNum(getPhoneNum());
             //if all the fields passed validation, send them to the controller
             if (myController.createNewUser(getNewUsername(),getNewPassword(),
-                    getPrivateName(),getLastName(),convertDateToString(getDateOfBirth()),getResidence())){
+                    getPrivateName(),getLastName(),convertDateToString(getDateOfBirth()),getResidence(),getEmail(),getPhoneNum())){
                 //show alert and return to login view
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Creation succeded!");
@@ -93,6 +106,6 @@ public class CreateUserView extends AView
 
     //switch to login view
     public void loadLoginForm() {
-        openNewWindow("/login.fxml", btn_done, 500, 400);
+        openNewWindow("/login.fxml", btn_done, 500, 300);
     }
 }

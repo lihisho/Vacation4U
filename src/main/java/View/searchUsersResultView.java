@@ -34,7 +34,7 @@ public class searchUsersResultView extends AView {
 
     }
     public void loadActionForm(){
-        openNewWindow("/actionScreen.fxml", btn_returnHome , 600,400);
+        openNewWindow("/actionScreen.fxml", btn_returnHome , 600,450);
 
     }
     public void loadSearchFormFromAction() {
@@ -45,6 +45,6 @@ public class searchUsersResultView extends AView {
         openNewWindow("/searchUsersLogin.fxml", btn_search,600,400);
     }
     public void loadLoginScreen(){
-        openNewWindow("/login.fxml", btn_returnHome, 500,400);
+        openNewWindow("/login.fxml", btn_returnHome, 500,300);
     }
 }

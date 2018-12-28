@@ -55,6 +55,6 @@ public class RequestsForSellerView extends AView implements Initializable{
     }
 
     public void loadActionScreen() {
-        openNewWindow("/actionScreen.fxml", btn_returnHome, 600, 400);
+        openNewWindow("/actionScreen.fxml", btn_returnHome, 600, 450);
     }
 }
