@@ -48,7 +48,7 @@ public class loginView extends AView{
         try{
             InputStream is= this.getClass().getResource("/createUser.fxml").openStream();
             Parent createForm = fxmlLoader.load(is);
-            CreateUserView create =fxmlLoader.getController();
+            createUserView create =fxmlLoader.getController();
             create.setMyController(this.myController);
             Scene newScene = new Scene(createForm,500,500);
             newScene.getStylesheets().add(actionScreenView.class.getResource("/actions.css").toExternalForm());

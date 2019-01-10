@@ -2,7 +2,7 @@ package vacationClasses;
 
 import javax.jws.soap.SOAPBinding;
 import java.util.Date;
-
+enum designation {toSwap, forSale}
 public class Vacation {
 
     //private fields
@@ -23,6 +23,8 @@ public class Vacation {
     private String originPrice;
     private String priceOffered;
     private String supplierUserName;
+    private designation vacationDesignatation;
+
 
     //constructor
     public Vacation(String vacationID, String departureFrom, String destination, String departDate, String returnDate,
@@ -45,6 +47,11 @@ public class Vacation {
         this.originPrice=originPrice;
         this.priceOffered=priceOffered;
         this.supplierUserName=supplier_userName;
+        if(priceOffered.equals("-1"))
+            vacationDesignatation = designation.toSwap;
+        else
+            vacationDesignatation = designation.forSale;
+
     }
 
     //setters and getters

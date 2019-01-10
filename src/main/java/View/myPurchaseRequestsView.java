@@ -17,17 +17,13 @@ import java.util.ResourceBundle;
 
 
 public class myPurchaseRequestsView extends AView implements Initializable{
-
-
     private Controller controller = Controller.getInstance();
-
-    public TableView<purchaseRequestColumn> tableResults;
-
-    public TableColumn<purchaseRequestColumn, String> requestIDCOl;
-    public TableColumn<purchaseRequestColumn, String> flightIDCol;
-    public TableColumn<purchaseRequestColumn, String> statusCol;
-    public TableColumn<purchaseRequestColumn, String> flightDetCol;
-    public TableColumn<purchaseRequestColumn, String> payCol;
+    public TableView<myPurchaseRequestRec> tableResults;
+    public TableColumn<myPurchaseRequestRec, String> requestIDCOl;
+    public TableColumn<myPurchaseRequestRec, String> flightIDCol;
+    public TableColumn<myPurchaseRequestRec, String> statusCol;
+    public TableColumn<myPurchaseRequestRec, String> flightDetCol;
+    public TableColumn<myPurchaseRequestRec, String> payCol;
     public Button btn_returnHome;
 
     @Override
@@ -47,9 +43,9 @@ public class myPurchaseRequestsView extends AView implements Initializable{
 
         // buycolumn.setCellValueFactory(new PropertyValueFactory<>("btn_buy"));
         ObservableList<purchaseRequest> returnPurchase = controller.gettMyRequest();
-        ObservableList<purchaseRequestColumn> data = FXCollections.observableArrayList();
+        ObservableList<myPurchaseRequestRec> data = FXCollections.observableArrayList();
         for (purchaseRequest p : returnPurchase) {
-            data.add(new purchaseRequestColumn(p.getPurchaseRequestID(),p.getFlightID(),p.getStatus(),new Hyperlink(),new Button()));//Tal
+            data.add(new myPurchaseRequestRec(p.getPurchaseRequestID(),p.getFlightID(),p.getStatus(),new Hyperlink(),new Button()));//Tal
         }
 
         tableResults.setItems(data);

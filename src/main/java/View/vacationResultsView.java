@@ -11,7 +11,7 @@ import vacationClasses.Vacation;
 import Controller.Controller;
 
 import javafx.scene.control.TableView;
-import vacationClasses.flightSearchColumn;
+import vacationClasses.vacationSearchResultsRec;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,16 +19,16 @@ import java.util.ResourceBundle;
 public class vacationResultsView extends AView implements Initializable{
     private Controller controller = Controller.getInstance();
 
-    public TableView<flightSearchColumn> tableResults;
+    public TableView<vacationSearchResultsRec> tableResults;
 
-    public TableColumn<flightSearchColumn, String> from;
-    public TableColumn<flightSearchColumn, String> destination;
-    public TableColumn<flightSearchColumn, String> departDate;
-    public TableColumn<flightSearchColumn, String> returnDate;
-    public TableColumn<flightSearchColumn, String> priceCol;
-    public TableColumn<flightSearchColumn, String> supplier;
-    public TableColumn<flightSearchColumn, String> buyCol;
-    public TableColumn<flightSearchColumn, String> detailsCol;
+    public TableColumn<vacationSearchResultsRec, String> from;
+    public TableColumn<vacationSearchResultsRec, String> destination;
+    public TableColumn<vacationSearchResultsRec, String> departDate;
+    public TableColumn<vacationSearchResultsRec, String> returnDate;
+    public TableColumn<vacationSearchResultsRec, String> priceCol;
+    public TableColumn<vacationSearchResultsRec, String> supplier;
+    public TableColumn<vacationSearchResultsRec, String> buyCol;
+    public TableColumn<vacationSearchResultsRec, String> detailsCol;
     public Button btn_returnHome;
 
     @Override
@@ -51,9 +51,9 @@ public class vacationResultsView extends AView implements Initializable{
 
         // buycolumn.setCellValueFactory(new PropertyValueFactory<>("btn_buy"));
         ObservableList<Vacation> returnVacations = controller.getReturnVacations();
-        ObservableList<flightSearchColumn> data = FXCollections.observableArrayList();
+        ObservableList<vacationSearchResultsRec> data = FXCollections.observableArrayList();
         for (Vacation v : returnVacations) {
-            data.add(new flightSearchColumn(v.getVacationID(),v.getDepartureFrom(),v.getDestination(),v.getDepartDate(),v.getReturnDate(),v.getSupplierUserName(),v.getPriceOffered(), new Hyperlink(),new Button()));
+            data.add(new vacationSearchResultsRec(v.getVacationID(),v.getDepartureFrom(),v.getDestination(),v.getDepartDate(),v.getReturnDate(),v.getSupplierUserName(),v.getPriceOffered(), new Hyperlink(),new Button()));
         }
 
         tableResults.setItems(data);

@@ -1,14 +1,9 @@
 package vacationClasses;
 
 import Controller.Controller;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.Hyperlink;
 
-import java.awt.*;
-
-public class myVacToExchangColumn extends Acolumn{
+public class myVacationsForSwapingRec extends ARecord {
     public String vacationID;
     public String from;
     public String destination;
@@ -16,7 +11,7 @@ public class myVacToExchangColumn extends Acolumn{
     public String returnDate;
     public CheckBox btn_Choose;
 
-    public myVacToExchangColumn(String _vacationID, String _from, String _destination, String _departDate, String _returnDate, CheckBox toSwitch) {
+    public myVacationsForSwapingRec(String _vacationID, String _from, String _destination, String _departDate, String _returnDate, CheckBox toSwitch) {
         myController = Controller.getInstance();
         vacationID = _vacationID;
         from = _from;

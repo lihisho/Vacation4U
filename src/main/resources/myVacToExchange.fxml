@@ -5,7 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="268.0" prefWidth="243.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.myVacToExchangeView">
+<AnchorPane prefHeight="268.0" prefWidth="243.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.myVacationForSwappingView">
    <children>
       <TableView fx:id="tableResults" prefHeight="200.0" prefWidth="550.0">
         <columns>

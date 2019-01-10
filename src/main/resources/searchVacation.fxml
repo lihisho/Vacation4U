@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="290.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.searchVacationView">
+<AnchorPane prefHeight="290.0" prefWidth="443.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.searchVacationView">
    <children>
-      <Label layoutX="59.0" layoutY="68.0" prefHeight="25.0" prefWidth="107.0" text="Flight destination:" textFill="#f8f6f6" />
+      <Label layoutX="59.0" layoutY="68.0" prefHeight="25.0" prefWidth="127.0" text="Vacation destination:" textFill="#f8f6f6" />
       <TextField fx:id="flightDestination" layoutX="197.0" layoutY="68.0" prefHeight="25.0" prefWidth="174.0" />
       <Label layoutX="59.0" layoutY="103.0" prefHeight="25.0" prefWidth="107.0" text="Depurture Date:" textFill="#fcfcfc" />
       <TextField fx:id="numOfPassengers" layoutX="198.0" layoutY="179.0" prefHeight="25.0" prefWidth="174.0" />

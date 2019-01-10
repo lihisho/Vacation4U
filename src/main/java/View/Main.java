@@ -19,7 +19,7 @@ public class Main extends Application {
     public static void main(String[] args) {launch(args);}
     //loads the app
     public void start (Stage primaryStage) throws Exception{
-        primaryStage.setTitle("Vacation4U");
+        primaryStage.setTitle("EveryVacation4U");
         FXMLLoader fxmlLoader = new FXMLLoader();
         InputStream is= this.getClass().getResource("/Login.fxml").openStream();
         Parent root = (Parent)fxmlLoader.load(is);

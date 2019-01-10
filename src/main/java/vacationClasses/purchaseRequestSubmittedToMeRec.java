@@ -1,7 +1,6 @@
 package vacationClasses;
 
 import Controller.Controller;
-import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -9,7 +8,7 @@ import javafx.scene.control.Hyperlink;
 
 import java.util.Optional;
 
-public class purchaseRequestForSellerColumn extends Acolumn{
+public class purchaseRequestSubmittedToMeRec extends ARecord {
     public String purchaseRequestID;
     public String flightID;
     public String purchaserUserName;
@@ -19,7 +18,7 @@ public class purchaseRequestForSellerColumn extends Acolumn{
     public Button btn_Reject;
 
 
-    public purchaseRequestForSellerColumn(String _purchaseRequestID, String _flightID, String _purchaserUserName, String _status, Hyperlink _flightDetails, Button _accept, Button _reject) {
+    public purchaseRequestSubmittedToMeRec(String _purchaseRequestID, String _flightID, String _purchaserUserName, String _status, Hyperlink _flightDetails, Button _accept, Button _reject) {
         myController = Controller.getInstance();
         purchaseRequestID = _purchaseRequestID;
         flightID = _flightID;
@@ -68,7 +67,7 @@ public class purchaseRequestForSellerColumn extends Acolumn{
                 myController.updatePurchaseRequestStatus(purchaseRequestID, "Done");
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Success");
-                alert.setContentText("Thank you for using Vacation4U! :)");
+                alert.setContentText("Thank you for using EveryVacation4U! :)");
                 alert.showAndWait();
                 if (!myController.deleteDonePurcahesReq(purchaseRequestID))
                     System.out.println("canot remove from purcahseReq table");//TODO:DELETE!

@@ -7,7 +7,7 @@ import javafx.scene.control.Hyperlink;
 
 import java.util.Optional;
 
-public class swapRequestHandedColumn extends Acolumn{
+public class mySwapRequestCol extends Acolumn{
     Controller myController;
     public String swapRequestID;
     public String requestedVacationID;
@@ -78,9 +78,9 @@ public class swapRequestHandedColumn extends Acolumn{
     }
 
     @SuppressWarnings("Duplicates")
-    public swapRequestHandedColumn(String _swapRequestID, String _requestedVacationID, String _offeredVacationID,
-                                       Hyperlink _Hyl_offeredVacationDet,Hyperlink _Hyl_requestedVacationDet, String _buyer,
-                                      String _status,Button _btn_detailsForPay) {
+    public mySwapRequestCol(String _swapRequestID, String _requestedVacationID, String _offeredVacationID,
+                            Hyperlink _Hyl_offeredVacationDet, Hyperlink _Hyl_requestedVacationDet, String _buyer,
+                            String _status, Button _btn_detailsForPay) {
         myController = Controller.getInstance();
         swapRequestID = _swapRequestID;
         requestedVacationID = _requestedVacationID;

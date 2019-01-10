@@ -17,7 +17,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.Optional;
 
-public class CreateUserView extends AView
+public class createUserView extends AView
 {
     //Text fields and buttons in the createUser.fxml
     public TextField txtfld_newUsername;

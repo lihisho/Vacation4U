@@ -9,20 +9,19 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import vacationClasses.*;
 
-import javax.swing.text.html.ListView;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class myVacToExchangeView extends AView implements Initializable {
+public class myVacationForSwappingView extends AView implements Initializable {
     private Controller controller = Controller.getInstance();
-    public TableView<myVacToExchangColumn> tableResults;
-    public TableColumn<flightSearchColumn, String> from;
-    public TableColumn<flightSearchColumn, String> destination;
-    public TableColumn<flightSearchColumn, String> departDate;
-    public TableColumn<flightSearchColumn, String> returnDate;
-    public TableColumn<flightSearchColumn, String> chooseCol;
+    public TableView<myVacationsForSwapingRec> tableResults;
+    public TableColumn<vacationSearchResultsRec, String> from;
+    public TableColumn<vacationSearchResultsRec, String> destination;
+    public TableColumn<vacationSearchResultsRec, String> departDate;
+    public TableColumn<vacationSearchResultsRec, String> returnDate;
+    public TableColumn<vacationSearchResultsRec, String> chooseCol;
     public Button btn_Choose;
-    public ObservableList<myVacToExchangColumn> data;
+    public ObservableList<myVacationsForSwapingRec> data;
 
 
 
@@ -45,7 +44,7 @@ public class myVacToExchangeView extends AView implements Initializable {
 
         for (Vacation v : returnVacation) {
 
-            data.add(new myVacToExchangColumn(v.getVacationID(),v.getDepartureFrom(),v.getDestination(),v.getDepartDate(),v.getReturnDate(),new CheckBox()));
+            data.add(new myVacationsForSwapingRec(v.getVacationID(),v.getDepartureFrom(),v.getDestination(),v.getDepartDate(),v.getReturnDate(),new CheckBox()));
         }
 
         tableResults.setItems(data);
@@ -54,7 +53,7 @@ public class myVacToExchangeView extends AView implements Initializable {
     //when press btn_choose
     public void handleButtonChooseMyVac(){
         String myVactionIDToChange="";
-        for(myVacToExchangColumn v: data){
+        for(myVacationsForSwapingRec v: data){
 
             if( v.isLineSelected()){
                 myVactionIDToChange=v.vacationID;

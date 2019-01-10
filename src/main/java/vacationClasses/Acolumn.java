@@ -3,7 +3,7 @@ package vacationClasses;
 import Controller.Controller;
 import javafx.scene.control.Alert;
 
-public class Acolumn {
+public abstract class Acolumn {
     Controller myController;
 
     protected void showVacToSwapDetails(Vacation vacationReturned){

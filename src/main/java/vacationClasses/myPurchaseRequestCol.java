@@ -5,14 +5,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 
-public class purchaseRequestColumn extends Acolumn {
+public class myPurchaseRequestCol extends Acolumn {
     public String purchaseRequestID;
     public String flightID;
     public String status;
     public Button btn_pay;
     public Hyperlink Hyl_flightDetails;
 
-    public purchaseRequestColumn(String _orderID, String _flightID, String _status, Hyperlink _flightDetails, Button pay) {
+    public myPurchaseRequestCol(String _orderID, String _flightID, String _status, Hyperlink _flightDetails, Button pay) {
         myController = Controller.getInstance();
         purchaseRequestID = _orderID;
         flightID = _flightID;

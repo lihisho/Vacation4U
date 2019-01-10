@@ -8,7 +8,7 @@ import javafx.scene.control.Hyperlink;
 
 import java.util.Optional;
 
-public class swapRequestForSellerColumn extends Acolumn {
+public class swapRequestSubmittedToMeCol extends Acolumn {
 
     public String requestID;
     public String sellerVacationID;
@@ -76,9 +76,9 @@ public class swapRequestForSellerColumn extends Acolumn {
         this.btn_Reject=btn_Reject;
     }
 
-    public swapRequestForSellerColumn(String _requestID, String _vacationID, Hyperlink _Hyl_sellerSideVacationDet,
-                                      String _buyerVacationId,Hyperlink _Hyl_buyerVacationDet, String _buyer,
-                                      String _status,Button _accept,Button _reject ) {
+    public swapRequestSubmittedToMeCol(String _requestID, String _vacationID, Hyperlink _Hyl_sellerSideVacationDet,
+                                       String _buyerVacationId, Hyperlink _Hyl_buyerVacationDet, String _buyer,
+                                       String _status, Button _accept, Button _reject ) {
         myController = Controller.getInstance();
         requestID = _requestID;
         sellerVacationID = _vacationID;

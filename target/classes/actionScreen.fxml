@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="416.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.actionScreenView">
+<AnchorPane prefHeight="416.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.actionScreenView">
    <children>
       <Button fx:id="btn_Update" layoutX="447.0" layoutY="121.0" mnemonicParsing="false" onAction="#loadUpdateForm" prefHeight="33.0" prefWidth="130.0" text="Update your details" AnchorPane.leftAnchor="447.0" AnchorPane.topAnchor="121.0" />
       <Button fx:id="btn_returnHome" layoutX="447.0" layoutY="166.0" mnemonicParsing="false" onAction="#loadLoginScreen" prefHeight="33.0" prefWidth="130.0" text="Log off" AnchorPane.leftAnchor="447.0" AnchorPane.topAnchor="166.0" />
@@ -22,7 +22,7 @@
          </graphic></Button>
       <Button fx:id="btn_Search" layoutX="17.0" layoutY="121.0" mnemonicParsing="false" onAction="#loadSearchForm" prefHeight="33.0" prefWidth="162.0" text="Search for other users" />
       <Button fx:id="btn_addFlight" layoutX="211.0" layoutY="122.0" mnemonicParsing="false" onAction="#loadCreateVaction" prefHeight="33.0" prefWidth="210.0" text="Add new vacation" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="122.0" />
-      <Button fx:id="btn_searchVacation" layoutX="17.0" layoutY="167.0" mnemonicParsing="false" onAction="#loadSearchVacation" prefHeight="33.0" prefWidth="162.0" text="Search for flights" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="167.0" />
+      <Button fx:id="btn_searchVacation" layoutX="17.0" layoutY="167.0" mnemonicParsing="false" onAction="#loadSearchVacation" prefHeight="33.0" prefWidth="162.0" text="Search for vacations" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="167.0" />
       <Button fx:id="btn_viewMyReq" layoutX="211.0" layoutY="166.0" mnemonicParsing="false" onAction="#getMyPurchaseReq" prefHeight="33.0" prefWidth="210.0" text="View my purchasing requests" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="166.0" />
       <Button fx:id="btn_requestForApprove" layoutX="211.0" layoutY="204.0" mnemonicParsing="false" onAction="#getRequestForSeller" prefHeight="33.0" prefWidth="210.0" text="View purchases for approval" AnchorPane.leftAnchor="211.0" AnchorPane.topAnchor="204.0" />
       <Label fx:id="lbl_currUserName" layoutX="58.0" layoutY="24.0" prefHeight="40.0" prefWidth="464.0" textAlignment="CENTER" wrapText="true">

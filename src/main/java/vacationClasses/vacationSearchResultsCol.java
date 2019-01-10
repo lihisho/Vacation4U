@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import java.io.InputStream;
 
 
-public class flightSearchColumn extends Acolumn{
+public class vacationSearchResultsCol extends Acolumn{
     public String flightId;//Tal
     public String from;
     public String destination;
@@ -21,7 +21,7 @@ public class flightSearchColumn extends Acolumn{
     private Hyperlink Hyl_ViewFlight; //TODO: lihi changed to hyperlink
 
 
-    public flightSearchColumn( String _flightID,String _from,String _destination,String _departDate,String _returnDate,String _supplierUserName,String _price, Hyperlink viewB, Button buy){
+    public vacationSearchResultsCol(String _flightID, String _from, String _destination, String _departDate, String _returnDate, String _supplierUserName, String _price, Hyperlink viewB, Button buy){
         myController=Controller.getInstance();
         flightId=_flightID;
         from=_from;

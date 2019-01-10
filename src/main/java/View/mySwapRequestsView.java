@@ -11,16 +11,16 @@ import vacationClasses.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class myHandedSwapRequestsView extends AView implements Initializable {
+public class mySwapRequestsView extends AView implements Initializable {
     private Controller controller = Controller.getInstance();
-    public TableView<swapRequestHandedColumn> tableRequestedSwaps;
-    public TableColumn<swapRequestHandedColumn, String> requestIDCol;
-    public TableColumn<swapRequestHandedColumn, String> requestedVacationIDCol;
-    public TableColumn<swapRequestHandedColumn, String> requestedVacationDetCol;
-    public TableColumn<swapRequestHandedColumn, String> offeredVacationIDCol;
-    public TableColumn<swapRequestHandedColumn, String> offeredVacationDetCol;
-    public TableColumn<swapRequestHandedColumn, String> statusCol;
-    public TableColumn<swapRequestHandedColumn, String> detailsForPayCol;
+    public TableView<mySwapRequestRec> tableRequestedSwaps;
+    public TableColumn<mySwapRequestRec, String> requestIDCol;
+    public TableColumn<mySwapRequestRec, String> requestedVacationIDCol;
+    public TableColumn<mySwapRequestRec, String> requestedVacationDetCol;
+    public TableColumn<mySwapRequestRec, String> offeredVacationIDCol;
+    public TableColumn<mySwapRequestRec, String> offeredVacationDetCol;
+    public TableColumn<mySwapRequestRec, String> statusCol;
+    public TableColumn<mySwapRequestRec, String> detailsForPayCol;
     public Button btn_returnHome;
 
 
@@ -36,9 +36,9 @@ public class myHandedSwapRequestsView extends AView implements Initializable {
         detailsForPayCol.setCellValueFactory(new PropertyValueFactory<>("btn_detailsForPay"));
 
         ObservableList<swapRequest> returnedSwapRequests = controller.getSwapRequestsHandedByBuyer();
-        ObservableList<swapRequestHandedColumn> data = FXCollections.observableArrayList();
+        ObservableList<mySwapRequestRec> data = FXCollections.observableArrayList();
         for (swapRequest sr : returnedSwapRequests) {
-            data.add(new swapRequestHandedColumn(sr.getSwapRequest_id(),sr.getSeller_side_vacation_id(),
+            data.add(new mySwapRequestRec(sr.getSwapRequest_id(),sr.getSeller_side_vacation_id(),
                     sr.getBuyer_side_vacation_id(),new Hyperlink(),new Hyperlink(),
                     sr.getBuyer_side_userName(),sr.getSwapStatus(),new Button()));
         }

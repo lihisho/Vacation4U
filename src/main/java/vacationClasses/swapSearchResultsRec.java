@@ -3,7 +3,6 @@ package vacationClasses;
 import Controller.Controller;
 import View.AView;
 import View.actionScreenView;
-import View.updateView;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +15,7 @@ import javafx.stage.Stage;
 import java.io.InputStream;
 
 
-public class exchangeSearchResultColumn extends Acolumn {
+public class swapSearchResultsRec extends ARecord {
     public String vacationId;
     public String from;
     public String destination;
@@ -25,12 +24,10 @@ public class exchangeSearchResultColumn extends Acolumn {
     public String supplierUserName;
     public Button btnSwitch;
     private Hyperlink Hyl_ViewVaction;
-    public String vacationIdToExchange;
 
-
-    public exchangeSearchResultColumn(String _vacationID, String _from, String _destination, String _departDate, String _returnDate, String _supplierUserName, Hyperlink viewB, Button _switch){
+    public swapSearchResultsRec(String _vacationID, String _from, String _destination, String _departDate, String _returnDate, String _supplierUserName, Hyperlink viewB, Button _switch){
         myController=Controller.getInstance();
-        vacationId=_vacationID;
+        this.vacationId=_vacationID;
         from=_from;
         destination=_destination;
         departDate=_departDate;

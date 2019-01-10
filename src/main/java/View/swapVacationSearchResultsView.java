@@ -10,23 +10,23 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import vacationClasses.Vacation;
-import vacationClasses.exchangeSearchResultColumn;
+import vacationClasses.swapSearchResultsRec;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class exchangeVacationResultsView extends AView implements Initializable{
+public class swapVacationSearchResultsView extends AView implements Initializable{
     private Controller controller = Controller.getInstance();
 
-    public TableView<exchangeSearchResultColumn> tableResults;
+    public TableView<swapSearchResultsRec> tableResults;
 
-    public TableColumn<exchangeSearchResultColumn, String> from;
-    public TableColumn<exchangeSearchResultColumn, String> destination;
-    public TableColumn<exchangeSearchResultColumn, String> departDate;
-    public TableColumn<exchangeSearchResultColumn, String> returnDate;
-    public TableColumn<exchangeSearchResultColumn, String> supplier;
-    public TableColumn<exchangeSearchResultColumn, String> switchCol;
-    public TableColumn<exchangeSearchResultColumn, String> detailsCol; //TODO: lihi changed to hyperlink
+    public TableColumn<swapSearchResultsRec, String> from;
+    public TableColumn<swapSearchResultsRec, String> destination;
+    public TableColumn<swapSearchResultsRec, String> departDate;
+    public TableColumn<swapSearchResultsRec, String> returnDate;
+    public TableColumn<swapSearchResultsRec, String> supplier;
+    public TableColumn<swapSearchResultsRec, String> switchCol;
+    public TableColumn<swapSearchResultsRec, String> detailsCol; //TODO: lihi changed to hyperlink
     public Button btn_returnHome;
 
     @Override
@@ -47,11 +47,11 @@ public class exchangeVacationResultsView extends AView implements Initializable{
 
         ObservableList<Vacation> returnVacation = controller.getReturnVacations();
 
-        ObservableList<exchangeSearchResultColumn> data = FXCollections.observableArrayList();
+        ObservableList<swapSearchResultsRec> data = FXCollections.observableArrayList();
 
         for (Vacation v : returnVacation) {
 
-                data.add(new exchangeSearchResultColumn(v.getVacationID(),v.getDepartureFrom(),v.getDestination(),v.getDepartDate(),v.getReturnDate(),v.getSupplierUserName(), new Hyperlink(),new Button()));
+                data.add(new swapSearchResultsRec(v.getVacationID(),v.getDepartureFrom(),v.getDestination(),v.getDepartDate(),v.getReturnDate(),v.getSupplierUserName(), new Hyperlink(),new Button()));
         }
         tableResults.setItems(data);
     }
